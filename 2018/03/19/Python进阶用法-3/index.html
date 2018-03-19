@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | KoiCarrot</title>
+  <title>Python进阶用法(三) | KoiCarrot</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Python Coder Zone">
-<meta name="keywords" content="python,flask,django,mysql,mongodb,java,html,css,nginx,tcp&#x2F;ip,http,gunicorn">
-<meta property="og:type" content="website">
-<meta property="og:title" content="KoiCarrot">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="多进程   python中创建多线程的方法有两种，一种是fork，一种是multiprocessing，fork是linux或者Mac内使用的，multiprocessing则可以在windows下使用. 创建子进程时，只需要传入一个执行函数和函数的参数，创建一个Process实例用start()方法启动，这样创建进程比fork()还要简单。join()方法可以等待子进程结束后再继续往下运行，通">
+<meta name="keywords" content="Python,Python进阶用法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python进阶用法(三)">
+<meta property="og:url" content="http://yoursite.com/2018/03/19/Python进阶用法-3/index.html">
 <meta property="og:site_name" content="KoiCarrot">
-<meta property="og:description" content="Python Coder Zone">
+<meta property="og:description" content="多进程   python中创建多线程的方法有两种，一种是fork，一种是multiprocessing，fork是linux或者Mac内使用的，multiprocessing则可以在windows下使用. 创建子进程时，只需要传入一个执行函数和函数的参数，创建一个Process实例用start()方法启动，这样创建进程比fork()还要简单。join()方法可以等待子进程结束后再继续往下运行，通">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-03-19T02:56:53.711Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="KoiCarrot">
-<meta name="twitter:description" content="Python Coder Zone">
+<meta name="twitter:title" content="Python进阶用法(三)">
+<meta name="twitter:description" content="多进程   python中创建多线程的方法有两种，一种是fork，一种是multiprocessing，fork是linux或者Mac内使用的，multiprocessing则可以在windows下使用. 创建子进程时，只需要传入一个执行函数和函数的参数，创建一个Process实例用start()方法启动，这样创建进程比fork()还要简单。join()方法可以等待子进程结束后再继续往下运行，通">
   
     <link rel="alternative" href="/atom.xml" title="KoiCarrot" type="application/atom+xml">
   
@@ -144,63 +145,76 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Python进阶用法-3" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/19/Python标准库/" class="archive-article-date">
-  	<time datetime="2018-03-19T02:21:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/19/Python标准库/">Python标准库</a>
+    <h1 class="article-title" itemprop="name">
+      Python进阶用法(三)
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/19/Python进阶用法-3/" class="archive-article-date">
+        
+        <a href="/2018/03/19/Python进阶用法-3/" class="archive-article-date">
   	<time datetime="2018-03-19T02:20:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/19/Python进阶用法-3/">Python进阶用法(三)</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>多进程</li>
+</ol>
+<ul>
+<li>python中创建多线程的方法有两种，一种是fork，一种是multiprocessing，fork是linux或者Mac内使用的，multiprocessing则可以在windows下使用.</li>
+<li>创建子进程时，只需要传入一个执行函数和函数的参数，创建一个Process实例用start()方法启动，这样创建进程比fork()还要简单。join()方法可以等待子进程结束后再继续往下运行，通常用于进程间的同步。</li>
+<li>如果需要大量生产子进程，我们可以使用进程池pool其使用方法为:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">p = Pool(4)</span><br><span class="line">for I in range(6):</span><br><span class="line">  do something</span><br><span class="line">p.close()</span><br><span class="line">p.join()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>要在join()等待同步前先调用close()</p>
+<ul>
+<li>进程间的通信通过queue、pipes来实现，通常用队列来实现，一个方法进行写操作，一个方法进行读操作.</li>
+</ul>
+<ol>
+<li>多线程:</li>
+</ol>
+<ul>
+<li>python标准库中有两个模块提供多线程服务，一个是_thread，一个是threading，它通常情况下我们使用threading，因为它对_thread进行了一定的封装.<br>以下为用法示例:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def xxx():</span><br><span class="line">  pass</span><br><span class="line">threadA = threading.Thread(target = xxx,name = ‘text_thread’)</span><br><span class="line">threadA.start()</span><br><span class="line">threadA.join()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>每隔进程开启时默认就会启动一个线程,current_thread()函数可以查看当前线程的实例.</p>
+<ul>
+<li><p>多线程不同于多进程，多进程中，同一个变量，各自有一份拷贝存在于每一个进程中，互不影响，但是多线程则是共享同一个进程中的变量，这样每一个线程都有修改变量的权利，如果同时处理一个变量的时候就会出现异常的情况.<br>为了处理这种情况，则我们需要给处理共享数据的方法上一把Lock锁，当某个线程获得锁的时候才可以对数据进行操作，没有获得锁的线程则进入等待状态.当当前线程处理完的时候，再把锁释放掉，让另一个进程获得.我们通常通过try..finally来确保锁被释放掉，否则会出现死锁的情况.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">lock = threading.lock()#创建锁</span><br><span class="line">lock.acquire()#请求获得锁</span><br><span class="line">lock.release()#释放锁</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Python本身具有GIL全局锁，即python程序默认只能单核运行.如果要改变这种状况，一般需要结合C语言进行实现.</p>
+</li>
+<li>在多线程环境下，每隔线程都有自己的数据。一个线程使用自己的局部变量比使用全局变量要好，因为局部变量只有线程自己可以看得见，不会影响其他线程，而全局变量修改常常涉及加锁释放锁.而TheadLocal可以让我们很方便地创建线程自己的局部变量而不影响其他线程.thread_local = threading.local()</li>
+<li>ThreadLocal解决了参数在一个线程中各个函数之间互相传递的问题</li>
+<li>分布式进程:可以通过multiprocessing.managers模块把Queue暴露出去，从而可以让其他机器的进程访问Queue了.<br>具体参考廖神代码: <a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431929340191970154d52b9d484b88a7b343708fcc60000" target="_blank" rel="noopener">https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431929340191970154d52b9d484b88a7b343708fcc60000</a></li>
+<li>协程，又称微线程，纤程。对于普通的子程序(函数)中，调用顺序是明确的，有层级的，但是在协程中，函数在执行过程中可以中断并跳到另一个函数(子程序)执行操作，然后在适合的时候再跳回来执行.协程的特点在于是一个线程执行，因此协程的切换是函数间的切换而不是子线程间的切换，因此节省了开销,而且在一个线程内我们不用担心共享资源加锁问题，只要判断好状态就好了.<br>在python中,协程的实现是通过generator生成器实现的,yield这个函数不仅可以返回一个值，还可以接受从子程序穿过来的值,子程序通过另一个程序(函数)对象(generator)的send()方法即可很方便得传输数据.</li>
+<li>异步io:</li>
+</ul>
+<ol>
+<li>asyncio是python3.4引入的标准库，直接内置了对异步IO的支持</li>
+<li>我们通过@asyncio.coroutine把一个generator标记为coroutine(协程)类型,然后把这个coroutine扔到Eventloop中执行<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">loop = asyncio.get_event_loop()</span><br><span class="line">loop.run_until_complete(hello())</span><br><span class="line">loop.close()</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>如果需要多个协程进行则<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">task = [help(),hello()]</span><br><span class="line">loop = asyncio.get_event_loop()</span><br><span class="line">loop.run_until_complete(asyncio.wait(task))</span><br><span class="line">loop.close()</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>Async/await代码用法同上 3.5版本以上支持.</li>
+</ul>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -216,256 +230,115 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/03/19/Python进阶用法-3/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/19/Python进阶用法-2/" class="archive-article-date">
-  	<time datetime="2018-03-19T02:20:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2018/03/19/Python标准库/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Python标准库
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/19/Python进阶用法-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Python进阶用法(二)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/19/Python进阶用法-2/">Python进阶用法(二)</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Python进阶用法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/19/Python进阶用法-1/" class="archive-article-date">
-  	<time datetime="2018-03-19T02:20:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/19/Python进阶用法-1/">Python进阶用法(一)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Python进阶用法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/19/Python知识点随记-3/" class="archive-article-date">
-  	<time datetime="2018-03-19T02:17:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/19/Python知识点随记-3/">Python知识点随记(三)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python知识点随记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/19/Python知识点随记-2/" class="archive-article-date">
-  	<time datetime="2018-03-19T02:16:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/19/Python知识点随记-2/">Python知识点随记(二)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python知识点随记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/18/Python知识点随记-1/" class="archive-article-date">
-  	<time datetime="2018-03-18T13:06:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/18/Python知识点随记-1/">Python知识点随记(一)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python知识点随记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/18/hello-world/" class="archive-article-date">
-  	<time datetime="2018-03-18T12:02:56.161Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/18/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -488,8 +361,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
