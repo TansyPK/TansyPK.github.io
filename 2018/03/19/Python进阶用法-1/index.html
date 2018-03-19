@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="KoiCarrot">
 <meta property="og:description" content="python切片针对序列的分割，python为其提供了切片操作,其基本语法list[num1:num2:num3]，其中num1为起始索引，num2为结束索引,num3为步长,起始索引从0开始计算，并且需要注意的是割去范围是[num1,num2)不包括num2。Num1与num2还支持负数，其中-1代表最后一个元素，但是需要注意的是如果需要从后往前反序割取，那么步长记得设置为-1Num3步长也可">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-19T02:58:16.223Z">
+<meta property="og:updated_time" content="2018-03-19T07:07:14.463Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python进阶用法(一)">
 <meta name="twitter:description" content="python切片针对序列的分割，python为其提供了切片操作,其基本语法list[num1:num2:num3]，其中num1为起始索引，num2为结束索引,num3为步长,起始索引从0开始计算，并且需要注意的是割去范围是[num1,num2)不包括num2。Num1与num2还支持负数，其中-1代表最后一个元素，但是需要注意的是如果需要从后往前反序割取，那么步长记得设置为-1Num3步长也可">
@@ -185,15 +185,15 @@
 </ol>
 <ul>
 <li><p>装饰器的使用：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">def log(func):</span><br><span class="line">  def wrapper(*args,**kw):</span><br><span class="line">    print(‘a’)</span><br><span class="line">    return func(*args,**kwargs)</span><br><span class="line">  return wrapper</span><br><span class="line">@log</span><br><span class="line">def now():</span><br><span class="line">	pass</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log</span><span class="params">(func)</span>:</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(*args,**kw)</span>:</span></span><br><span class="line">    print(‘a’)</span><br><span class="line">    <span class="keyword">return</span> func(*args,**kwargs)</span><br><span class="line">  <span class="keyword">return</span> wrapper</span><br><span class="line"><span class="meta">@log</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">now</span><span class="params">()</span>:</span></span><br><span class="line">	<span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>装饰器的三重使用:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">def log(text):</span><br><span class="line">def decorator(func):</span><br><span class="line">@functools.wraps(func)</span><br><span class="line">        def wrapper(*args, **kw):</span><br><span class="line">            print(&apos;%s %s():&apos; % (text, func.__name__))</span><br><span class="line">            return func(*args, **kw)</span><br><span class="line">        return wrapper</span><br><span class="line">    return decorator</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log</span><span class="params">(text)</span>:</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decorator</span><span class="params">(func)</span>:</span></span><br><span class="line"><span class="meta">@functools.wraps(func)</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(*args, **kw)</span>:</span></span><br><span class="line">            print(<span class="string">'%s %s():'</span> % (text, func.__name__))</span><br><span class="line">            <span class="keyword">return</span> func(*args, **kw)</span><br><span class="line">        <span class="keyword">return</span> wrapper</span><br><span class="line">    <span class="keyword">return</span> decorator</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <ol>
 <li><p>偏函数<br>偏函数可以更方便让我们对一些固有的函数易用化(通过固定某些参数)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Import functools</span><br><span class="line">functools.partial(int,base=2)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Import functools</span><br><span class="line">functools.partial(int,base=<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
 <p>这么做固定了int函数的base值为2</p>
 </li>
 </ol>
@@ -449,11 +449,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python知识点随记</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python知识点随记</a>
               </li>
              
               <li class="article-tag-list-item">

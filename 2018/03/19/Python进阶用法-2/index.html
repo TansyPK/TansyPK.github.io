@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="KoiCarrot">
 <meta property="og:description" content="面向对象编程对于python，如果需要防止对象变量被随意访问，可以设置变量为name这种形式，这样就设置了name变量为private属性，类似Java的private，但是你仍然可以通过_classname来访问变量，但是强烈不建议这么做.type()判断类型,导入types包可以用type(xxx)==types.GeneratorType,但是这么做对于判断class不方便，isinsta">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-19T02:53:11.062Z">
+<meta property="og:updated_time" content="2018-03-19T07:07:27.296Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python进阶用法(二)">
 <meta name="twitter:description" content="面向对象编程对于python，如果需要防止对象变量被随意访问，可以设置变量为name这种形式，这样就设置了name变量为private属性，类似Java的private，但是你仍然可以通过_classname来访问变量，但是强烈不建议这么做.type()判断类型,导入types包可以用type(xxx)==types.GeneratorType,但是这么做对于判断class不方便，isinsta">
@@ -172,7 +172,7 @@
 <ul>
 <li>s.set_age = MethodType(set_age,s) set_age定义在python file内,这样添加方法只能在s对象使用,如果想要s同类型对象全都可用的话需要使用下一种方法设置</li>
 <li><p>Student.set_age = set_age：这样就可以对所有Student对象使用方法了<br><strong>slots</strong>可以限制实例的属性,方法如下:<br>在class内定义</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">__slots__=(‘name’,’age’)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">__slots__=(‘name’,’age’)</span><br></pre></td></tr></table></figure>
 <p>需要注意的是，<strong>slots</strong>定义的属性仅对当前的实例起作用，对其继承的子类是不起作用的</p>
 </li>
 <li>@property这个property装饰器可以帮助我们很好得把属性进行封装，并可以对复制进行检查等，这很类似于java中对bean类的封装,并不直接暴露属性，而是通过getter，setter来对属性进行读写操作，并可以对值进行检查.</li>
@@ -183,7 +183,7 @@
 <li><strong>getattr</strong>可以使当调用类对象不具有的属性或者方法时通过调用<strong>getattr</strong>方法获取默认返回值而不至于报错,使用方法为:def <strong>getattr</strong>(self,attr): if attr==’age’:XXX。但是如果我们此时调用除了age以外不存在的属性值时会返回None而不是Trackback，这是因为getattr默认就是返回None.对于这种情况，如果我们只是想对某些属性进行默认返回,那么我们就需要在函数中raise AttributeError(‘\’Student’\’ object has no attribute \’%s\’’ %attr)</li>
 <li><strong>call</strong>可以将对象自己作为方法调用,通过callable()函数我们可以判断对象是否为自身可调用.</li>
 <li><p>Enum()方法可以为枚举类型定义一个class类型，然后，每一个常量都是class的一个唯一实例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from enum import Enum</span><br><span class="line">Month = Enum(&apos;Month&apos;, (&apos;Jan&apos;, &apos;Feb&apos;, &apos;Mar&apos;, &apos;Apr&apos;, &apos;May&apos;, &apos;Jun&apos;, &apos;Jul&apos;, &apos;Aug&apos;, &apos;Sep&apos;, &apos;Oct&apos;, &apos;Nov&apos;, &apos;Dec&apos;))</span><br><span class="line">for k,v in Month.__members__.items():</span><br><span class="line">print(k,v.value)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> enum <span class="keyword">import</span> Enum</span><br><span class="line">Month = Enum(<span class="string">'Month'</span>, (<span class="string">'Jan'</span>, <span class="string">'Feb'</span>, <span class="string">'Mar'</span>, <span class="string">'Apr'</span>, <span class="string">'May'</span>, <span class="string">'Jun'</span>, <span class="string">'Jul'</span>, <span class="string">'Aug'</span>, <span class="string">'Sep'</span>, <span class="string">'Oct'</span>, <span class="string">'Nov'</span>, <span class="string">'Dec'</span>))</span><br><span class="line"><span class="keyword">for</span> k,v <span class="keyword">in</span> Month.__members__.items():</span><br><span class="line">print(k,v.value)</span><br></pre></td></tr></table></figure>
 <p>其中value值是Enum方法赋值给属性的，默认从1开始.</p>
 </li>
 <li>@unique装饰器保证没有重复值</li>
@@ -442,11 +442,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python知识点随记</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python知识点随记</a>
               </li>
              
               <li class="article-tag-list-item">

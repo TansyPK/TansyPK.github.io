@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="KoiCarrot">
 <meta property="og:description" content="改变实例的打印或者显示输出:   可以在类内复写str函数，从而改变打印输出形式. 可以在类内复写repr函数，从而改变实例输出形式 两者的主要区别在于：repr() 方法返回一个实例的代码表示形式，通常用来重新构造这个实例。 内置的 repr() 函数返回这个字符串，跟我们使用交互式解释器显示的值是一样的。 str() 方法将实例转换为一个字符串，使用 str() 或 print() 函数会输">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-19T02:58:42.902Z">
+<meta property="og:updated_time" content="2018-03-19T07:08:39.623Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python知识点随记(三)">
 <meta name="twitter:description" content="改变实例的打印或者显示输出:   可以在类内复写str函数，从而改变打印输出形式. 可以在类内复写repr函数，从而改变实例输出形式 两者的主要区别在于：repr() 方法返回一个实例的代码表示形式，通常用来重新构造这个实例。 内置的 repr() 函数返回这个字符串，跟我们使用交互式解释器显示的值是一样的。 str() 方法将实例转换为一个字符串，使用 str() 或 print() 函数会输">
@@ -188,11 +188,11 @@
 <ol>
 <li>Super()调用父类的方法:<strong>mro</strong>查找链</li>
 <li><p>如果想要扩展父类的property可以这么做:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@name.setter</span><br><span class="line">    def name(self, value):</span><br><span class="line">        print(&apos;Setting name to&apos;, value)</span><br><span class="line">        super(SubPerson, SubPerson).name.__set__(self, value)</span><br><span class="line">	还可以这么做:</span><br><span class="line">	@Person.name.getter</span><br><span class="line">    def name(self):</span><br><span class="line">        print(&apos;Getting name&apos;)</span><br><span class="line">        return super().name</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@name.setter</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">name</span><span class="params">(self, value)</span>:</span></span><br><span class="line">        print(<span class="string">'Setting name to'</span>, value)</span><br><span class="line">        super(SubPerson, SubPerson).name.__set__(self, value)</span><br><span class="line">	还可以这么做:</span><br><span class="line"><span class="meta">	@Person.name.getter</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">name</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'Getting name'</span>)</span><br><span class="line">        <span class="keyword">return</span> super().name</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>描述器可以生成一个全新的属性.</p>
 </li>
-<li>定义接口或者抽象基类:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">from abc import ABCMeta, abstractmethod</span><br><span class="line">class IStream(metaclass=ABCMeta):</span><br><span class="line">    @abstractmethod</span><br><span class="line">    def read(self, maxbytes=-1):</span><br><span class="line">        pass</span><br><span class="line"></span><br><span class="line">    @abstractmethod</span><br><span class="line">    def write(self, data):</span><br><span class="line">        pass</span><br></pre></td></tr></table></figure>
+<li>定义接口或者抽象基类:<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> abc <span class="keyword">import</span> ABCMeta, abstractmethod</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">IStream</span><span class="params">(metaclass=ABCMeta)</span>:</span></span><br><span class="line"><span class="meta">    @abstractmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">read</span><span class="params">(self, maxbytes=<span class="number">-1</span>)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @abstractmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">write</span><span class="params">(self, data)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 
@@ -447,11 +447,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python知识点随记</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python知识点随记</a>
               </li>
              
               <li class="article-tag-list-item">
