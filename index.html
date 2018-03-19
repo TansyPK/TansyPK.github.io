@@ -146,19 +146,19 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-My-New-Post" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Python知识点随记(1)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/18/My-New-Post/">My New Post</a>
+      <a class="article-title" href="/2018/03/18/Python知识点随记(1)/">Python知识点随记</a>
     </h1>
   
 
         
-        <a href="/2018/03/18/My-New-Post/" class="archive-article-date">
+        <a href="/2018/03/18/Python知识点随记(1)/" class="archive-article-date">
   	<time datetime="2018-03-18T13:06:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-18</time>
 </a>
         
@@ -166,7 +166,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <ol>
+<li>描述器<br>(1)描述器可以改变python默认的获取属性值行为<br>(2)描述器可以是类也可以是方法,装饰器@classmethod可以把方法或者类成为描述器，另一种方式是，对于实现<strong>get</strong>，<strong>set</strong>，<strong>delete</strong>方法的类都是描述器</li>
+<li>type(a).<strong>dict</strong>,type还可以这么使用，但是此时的type()不再是查看类型，而是变成了a的父类(应该吧…)</li>
+<li>可迭代小技巧一:要自定义可迭代(iterable)的对象，只需要让对象(类)实现<strong>iter</strong>方法即可，但是需要保证的是<strong>iter</strong>方法返回了一个实现了<strong>next</strong>()方法的迭代器对象.</li>
+<li>Iter(s)等同于s.<strong>iter</strong>()来返回相应的迭代器对象</li>
+<li>迭代器需要实现<strong>iter</strong>，<strong>next</strong>两个方法，可以通过next()获得下一个变量.</li>
+<li>反向迭代仅仅当对象的大小可预先确定或者对象实现了 <strong>reversed</strong>() 的特殊方法时才能生效。 如果两者都不符合，那你必须先将对象转换为一个列表才行</li>
+<li>如果我们的定义的生成器(函数)要暴露一些外部状态给用户(应该是属性),我们可以将方法定义为一个类，并在类中的<strong>iter</strong>方法中yield，这样不会改变任何函数本身的逻辑实现.</li>
+<li>如果要对迭代器进行切片操作的话，我们可以使用itertools.islice(xxx,10,20)函数进行切片操作，它会自行迭代并剔除掉那些不要的元素，最后一个个返回.但是需要注意的是,迭代器是不可逆的，我们对迭代器进行了剔除后就真的从迭代器中剔除了.(可适用于所有可迭代对象)</li>
+<li>itertools 模块中有一些函数可以完成这个任务。 首先介绍的是 itertools.dropwhile() 函数。使用时，你给它传递一个函数对象和一个可迭代对象。 它会返回一个迭代器对象，丢弃原有序列中直到函数返回Flase之前的所有元素，然后返回后面所有元素。(可适用于所有可迭代对象)</li>
+<li>其中一个是 itertools.permutations() ， 它接受一个集合并产生一个元组序列，每个元组由集合中所有元素的一个可能排列组成。 也就是说通过打乱集合中元素排列顺序生成一个元组<br>使用 itertools.combinations() 可得到输入集合中元素的所有的组合<br>在计算组合的时候，一旦元素被选取就会从候选中剔除掉(比如如果元素’a’已经被选取了，那么接下来就不会再考虑它了)。 而函数 itertools.combinations_with_replacement() 允许同一个元素被选择多次</li>
+<li>zip(a, b) 会生成一个可返回元组 (x, y) 的迭代器，其中x来自a，y来自b。 一旦其中某个序列到底结尾，迭代宣告结束。 因此迭代长度跟参数中最短序列长度一致</li>
+<li>itertools.chain() 方法可以用来简化这个任务。 它接受一个可迭代对象列表作为输入，并返回一个迭代器，有效的屏蔽掉在多个容器中迭代细节</li>
+<li>如果我们有非常大的数据，以至于我们没有办法一次性放入内存中,我们可以创建数据管道来处理(生成器实现) <a href="http://python3-cookbook.readthedocs.io/zh_CN/latest/c04/p13_create_data_processing_pipelines.html" target="_blank" rel="noopener">http://python3-cookbook.readthedocs.io/zh_CN/latest/c04/p13_create_data_processing_pipelines.html</a></li>
+<li>想将一个多层嵌套的序列展开成一个单层列表，请使用yield from</li>
+<li>想将一序列排序序列合并后得到一个排序序列并在上面迭代遍历heapq.merge(),需要注意的是要求参数序列均已排序</li>
+</ol>
+
       
 
       
@@ -174,11 +191,22 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/18/My-New-Post/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/03/18/Python知识点随记(1)/">展开全文 >></a>
         </p>
       
 
@@ -366,6 +394,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
