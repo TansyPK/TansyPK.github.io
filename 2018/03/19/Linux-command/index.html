@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: Python进阶用法 | KoiCarrot</title>
+  <title>Linux_command(常用命令) | KoiCarrot</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Python Coder Zone">
-<meta name="keywords" content="python,flask,django,mysql,mongodb,java,html,css,nginx,tcp&#x2F;ip,http,gunicorn">
-<meta property="og:type" content="website">
-<meta property="og:title" content="KoiCarrot">
-<meta property="og:url" content="http://yoursite.com/tags/Python进阶用法/index.html">
+  <meta name="description" content="ls\ls –a\ls –al\ls –alh显示文件目录 ll 相当于ls –alh pwd 当前路径 cd 跳转 xxx –help –man 帮助信息 history 历史信息 command &amp;gt; xxx.txt 重定向 覆盖XXX.TXT的内容 command &amp;gt;&amp;gt; xxx.txt 同样重定向 不过追加到XXX.TXT内容后面 | 管道 可以连接两个命令 ls | mo">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux_command(常用命令)">
+<meta property="og:url" content="http://yoursite.com/2018/03/19/Linux-command/index.html">
 <meta property="og:site_name" content="KoiCarrot">
-<meta property="og:description" content="Python Coder Zone">
+<meta property="og:description" content="ls\ls –a\ls –al\ls –alh显示文件目录 ll 相当于ls –alh pwd 当前路径 cd 跳转 xxx –help –man 帮助信息 history 历史信息 command &amp;gt; xxx.txt 重定向 覆盖XXX.TXT的内容 command &amp;gt;&amp;gt; xxx.txt 同样重定向 不过追加到XXX.TXT内容后面 | 管道 可以连接两个命令 ls | mo">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-03-19T06:19:07.969Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="KoiCarrot">
-<meta name="twitter:description" content="Python Coder Zone">
+<meta name="twitter:title" content="Linux_command(常用命令)">
+<meta name="twitter:description" content="ls\ls –a\ls –al\ls –alh显示文件目录 ll 相当于ls –alh pwd 当前路径 cd 跳转 xxx –help –man 帮助信息 history 历史信息 command &amp;gt; xxx.txt 重定向 覆盖XXX.TXT的内容 command &amp;gt;&amp;gt; xxx.txt 同样重定向 不过追加到XXX.TXT内容后面 | 管道 可以连接两个命令 ls | mo">
   
     <link rel="alternative" href="/atom.xml" title="KoiCarrot" type="application/atom+xml">
   
@@ -144,148 +145,205 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Linux-command" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Linux_command(常用命令)
+    </h1>
+  
+
+        
+        <a href="/2018/03/19/Linux-command/" class="archive-article-date">
+  	<time datetime="2018-03-19T06:17:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>ls\ls –a\ls –al\ls –alh显示文件目录</li>
+<li>ll 相当于ls –alh</li>
+<li>pwd 当前路径</li>
+<li>cd 跳转</li>
+<li>xxx –help –man 帮助信息</li>
+<li>history 历史信息</li>
+<li>command &gt; xxx.txt 重定向 覆盖XXX.TXT的内容</li>
+<li>command &gt;&gt; xxx.txt 同样重定向 不过追加到XXX.TXT内容后面</li>
+<li>| 管道 可以连接两个命令 ls | more</li>
+<li>More 如果输出信息太多，屏幕显示不全，那么more可以分屏显示</li>
+<li>Mkdir 创建文件夹</li>
+<li>Rm 删除文件 </li>
+<li>Rmdir 删除文件夹</li>
+<li>Rm –rf 可以删除任何文件或者文件夹 –r表示递归</li>
+<li>Tree 可以显示目录树</li>
+<li>Ln –s xxx.txt aaa.txt 软链接 类似windows的快捷方式</li>
+<li>Cat 显示文本信息</li>
+<li>Mv 可以移动也可以易名</li>
+<li>Ln xxx.txt aaa.txt 硬链接</li>
+<li>Grep “…” xxx.txt 在文本中查找显示</li>
+<li>Find ./ -name “….” 在路径中查找文件</li>
+<li>Cp 复制文件 –r递归复制</li>
+<li>Tar –cvf xxx.tar *.py 打包 不压缩 </li>
+<li>Tar –xvf xxx.tar 解包 不压缩 –C 解压缩到指定路径</li>
+<li>Tar –zcvf xxx.tar.gz *.py 打包加压缩</li>
+<li>Tar –zxvf xxx.tar.gz 解压缩包</li>
+<li>Tar –jcvf xxx.tar.bz2 *.py bz2格式压缩包</li>
+<li>Tar –jxvf xxx.tar.bz2 解压缩bz2</li>
+<li>Zip zzz.zip *.py</li>
+<li>Unzip zzz.zip</li>
+<li>Which 链接 显示链接文件在哪</li>
+<li>Cal 显示日历</li>
+<li>Date显示时间</li>
+<li>Ps (process)进程 ps –aux 所有的进程</li>
+<li>Top 显示正在进行的进程</li>
+<li>Htop 高级显示正在进行的进程</li>
+<li>Kill 杀掉进程 kill pid (kill -9 pid 删除无论如何)</li>
+<li>Reboot 重启</li>
+<li>Shutdown –h now立刻关机 </li>
+<li>Df 显示硬盘使用情况</li>
+<li>Du显示路径占有空间</li>
+<li>Ifconfig 查看当前电脑网络信息</li>
+<li>Ping 检测网络连接</li>
+<li>Useradd xxx –m</li>
+<li>/etc/passwd 用户管理文件</li>
+<li>Passwd xxx 设置密码</li>
+<li>Whoami 显示当前用户</li>
+<li>Exit 退出当前用户</li>
+<li>Ssh 远程连接</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/19/Python进阶用法-3/" class="archive-article-date">
-  	<time datetime="2018-03-19T02:20:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/19/Python进阶用法-3/">Python进阶用法(三)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Python进阶用法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/03/19/Linux-command/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/19/Python进阶用法-2/" class="archive-article-date">
-  	<time datetime="2018-03-19T02:20:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2018/03/19/Vi-command/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Vi_command(常用命令)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/19/Python进阶用法-3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Python进阶用法(三)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/19/Python进阶用法-2/">Python进阶用法(二)</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Python进阶用法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/19/Python进阶用法-1/" class="archive-article-date">
-  	<time datetime="2018-03-19T02:20:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/19/Python进阶用法-1/">Python进阶用法(一)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Python进阶用法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -308,9 +366,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

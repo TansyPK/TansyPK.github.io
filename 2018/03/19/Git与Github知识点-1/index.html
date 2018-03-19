@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: Python进阶用法 | KoiCarrot</title>
+  <title>Git与Github知识点(一) | KoiCarrot</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Python Coder Zone">
-<meta name="keywords" content="python,flask,django,mysql,mongodb,java,html,css,nginx,tcp&#x2F;ip,http,gunicorn">
-<meta property="og:type" content="website">
-<meta property="og:title" content="KoiCarrot">
-<meta property="og:url" content="http://yoursite.com/tags/Python进阶用法/index.html">
+  <meta name="description" content="1、    Git help(查询git的帮助文档)——git help –a(所有可用的git帮助将提供)2、    Git config:  git config –global user.name xxx(设置Git全局名称) git config –global user.email xxx(设置Git全局邮件) git config –unset –global user.name(删除">
+<meta name="keywords" content="Git,Github,Git与Github知识点">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git与Github知识点(一)">
+<meta property="og:url" content="http://yoursite.com/2018/03/19/Git与Github知识点-1/index.html">
 <meta property="og:site_name" content="KoiCarrot">
-<meta property="og:description" content="Python Coder Zone">
+<meta property="og:description" content="1、    Git help(查询git的帮助文档)——git help –a(所有可用的git帮助将提供)2、    Git config:  git config –global user.name xxx(设置Git全局名称) git config –global user.email xxx(设置Git全局邮件) git config –unset –global user.name(删除">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-03-19T06:47:51.209Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="KoiCarrot">
-<meta name="twitter:description" content="Python Coder Zone">
+<meta name="twitter:title" content="Git与Github知识点(一)">
+<meta name="twitter:description" content="1、    Git help(查询git的帮助文档)——git help –a(所有可用的git帮助将提供)2、    Git config:  git config –global user.name xxx(设置Git全局名称) git config –global user.email xxx(设置Git全局邮件) git config –unset –global user.name(删除">
   
     <link rel="alternative" href="/atom.xml" title="KoiCarrot" type="application/atom+xml">
   
@@ -144,148 +145,192 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Git与Github知识点-1" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Git与Github知识点(一)
+    </h1>
+  
+
+        
+        <a href="/2018/03/19/Git与Github知识点-1/" class="archive-article-date">
+  	<time datetime="2018-03-19T06:27:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1、    Git help(查询git的帮助文档)——git help –a(所有可用的git帮助将提供)<br>2、    Git config:</p>
+<ul>
+<li>git config –global user.name xxx(设置Git全局名称)</li>
+<li>git config –global user.email xxx(设置Git全局邮件)</li>
+<li>git config –unset –global user.name(删除Git全局名字)</li>
+<li>git config –list(查看配置)</li>
+</ul>
+<p>3、    Git init(初始化Git仓库)<br>4、    Git status(查看Git仓库状态，是否有文件未跟踪或者提交)<br>5、    Git add XXX/.(将修改文件/目录所有文件从工作区添加到缓存区)<br>6、    Git commit:</p>
+<ul>
+<li>git commit –m ”这里填写调教信息”(将修改从缓存区提交到分支里)</li>
+</ul>
+<p>7、    Git diff(在工作树和索引或树之间显示更改，索引和树之间的更改，两棵树之间的更改，两个Blob对象之间的更改或磁盘上两个文件之间的更改)<br>8、    Git mv(更改git中缓存区的名字，同时会作用于工作区的文件)mv(更改工作区中的名字)<br>9、    Git rm(删除git中缓存区的文件，同时会作用于工作区的文件)rm(删除工作区的文件)</p>
+<ul>
+<li>git rm –cached(使用此选项可以取消仅从索引中删除路径。工作树文件，无论是否修改，都将被保留。)</li>
+</ul>
+<p>10、Git revert(恢复一些现有的提交)</p>
+<ul>
+<li>git revert HEAD~3(Head最先指向0，恢复HEAD中最后第四次提交指定的更改，并使用恢复的更改创建一个新的提交。)</li>
+<li>git revert HEAD^ 相当于HEAD~1</li>
+</ul>
+<p>11、Git reset(将当前HEAD重置为指定状态)</p>
+<ul>
+<li>git reset –soft HEAD~X/版本号(软重置，对工作区和缓存区均不影响，仅影响分支)</li>
+<li>git reset –mixed HEAD~X/版本号(不影响工作区，影响缓存区以及分支)</li>
+<li>git reset –hard HEAD~X/版本号(影响工作区、缓存区、分支)</li>
+</ul>
+<p>12、Git log(打印日志)</p>
+<ul>
+<li>git log –oneline(逐行读取日志信息)</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/19/Python进阶用法-3/" class="archive-article-date">
-  	<time datetime="2018-03-19T02:20:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/19/Python进阶用法-3/">Python进阶用法(三)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Python进阶用法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Github</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git与Github知识点</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/03/19/Git与Github知识点-1/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/19/Python进阶用法-2/" class="archive-article-date">
-  	<time datetime="2018-03-19T02:20:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2018/03/19/Git与Github知识点-2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Git与Github知识点(二)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/19/Http浅认识/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Http浅认识(一)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/19/Python进阶用法-2/">Python进阶用法(二)</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Python进阶用法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/19/Python进阶用法-1/" class="archive-article-date">
-  	<time datetime="2018-03-19T02:20:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/19/Python进阶用法-1/">Python进阶用法(一)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Python进阶用法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -308,9 +353,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
