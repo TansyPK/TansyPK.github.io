@@ -140,6 +140,197 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-美团笔试2017校招选择题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/23/美团笔试2017校招选择题/">美团笔试2017校招选择题</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/23/美团笔试2017校招选择题/" class="archive-article-date">
+  	<time datetime="2018-03-23T02:52:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>下面代码输出的结果是？</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String args[]) &#123;</span><br><span class="line">Thread t = new Thread() &#123;</span><br><span class="line">public void run() &#123;</span><br><span class="line">print();</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br><span class="line">t.run();</span><br><span class="line">System.out.print(“MT”);</span><br><span class="line">&#125;</span><br><span class="line">static void print() &#123;</span><br><span class="line">System.out.print(“DP”);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>答案：DPMT<br>需要注意的是这里t.run()而不是t.start()，因此这里的代码中已经   失去线程的特性了</li>
+</ul>
+<ol>
+<li>下列需要使用队列做辅助存储空间的操作是？</li>
+</ol>
+<p>(1)查找哈希表<br>(2)先序遍历二叉树<br>(3)广度优先搜索图<br>(4)深度优先搜索图</p>
+<ul>
+<li>答案:(3),广度优先遍历用队列(先进先出)，深度优先遍历用栈(后进先出)</li>
+</ul>
+<ol>
+<li>关于数据库索引，以下说法正确的是？</li>
+</ol>
+<p>(1)针对某些字段建立索引，能够有效的减少相关数据库表的磁盘空间占用<br>(2)针对某些字段建立索引，能够有效的提升相关字段的读与写的效率<br>(3)常见数据库管理系统，通常使用hash表来存储索引<br>(4)数据库索引的存在，可能导致相关字段删除的效率降低</p>
+<ul>
+<li>答案:(4),增加索引会增加磁盘占用；建立索引可以提升查询速度，即读取速度，但在一定程度上降低写速度；数据库一般使用b*树作为索引；删除数据需要调整索引，所以会降低效率</li>
+</ul>
+<ol>
+<li>下列算法的时间复杂度是</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">int  fun(int n)&#123; </span><br><span class="line"><span class="keyword">if</span>(n&lt;<span class="number">2</span>)&#123; </span><br><span class="line"><span class="keyword">return</span> <span class="number">1</span>; </span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">return</span> n*fun(n<span class="number">-2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>答案：O(n),复杂度是衡量计算次数而不是计算数据的数量的。这个函数一共只会执行约n/2次 操作。所以是o(n)</li>
+</ul>
+<ol>
+<li>下面对于cookie的描述中错误的是？</li>
+</ol>
+<p>(1)用于实现session跟踪技术<br>(2)Cookie是由服务器保存在客户端的文本文件，大小限制在4kb左右<br>(3)Cookie在服务端与客户端之间往返时通过HTTP Headers进行传输<br>(4)HTTP请求中的Cookie是加密传递的</p>
+<ul>
+<li>答案:(4),在HTTP请求中的cookie是明文传递的(HTTP都是明文传递)</li>
+</ul>
+<ol>
+<li>进程间的通信方式</li>
+</ol>
+<ul>
+<li>管道</li>
+<li>信号量</li>
+<li>消息队列</li>
+<li>信号</li>
+<li>共享内存</li>
+<li>套接字</li>
+</ul>
+<ol>
+<li>哪些设计模式能够提高系统扩展性？</li>
+</ol>
+<p>(1)singleton单例模式<br>(2)abstract factory工厂方法<br>(3)adapter适配器模式<br>(4)Decorator装饰器模式</p>
+<ul>
+<li>答案:单例模式没有提高扩展性;工厂方法实现松耦合，提高扩展性;适配器模式可以将一个接口转换成另一个接口，方便引入外部接口;装饰者模式可以扩展接口功能.</li>
+</ul>
+<ol>
+<li>线程与进程</li>
+</ol>
+<ul>
+<li>进程：子进程是父进程的复制品。子进程获得父进程数据空间、堆和栈的复制品。</li>
+<li>线程：相对与进程而言，线程是一个更加接近与执行体的概念，它可以与同进程的其他线程共享数据，但拥有自己的栈空间，拥有独立的执行序列。<br>两者都可以提高程序的并发度，提高程序运行效率和响应时间。<br>线程和进程在使用上各有优缺点：线程执行开销小，但不利于资源管理和保护；而进程正相反。同时，线程适合于在SMP机器上运行，而进程则可以跨机器迁移。<br>根本区别就一点：用多进程每个进程有自己的地址空间(address space)，线程则共享地址空间。所有其它区别都是由此而来的： </li>
+<li>速度：线程产生的速度快，线程间的通讯快、切换快等，因为他们在同一个地址空间内。 </li>
+<li>资源利用率：线程的资源利用率比较好也是因为他们在同一个地址空间内。 </li>
+<li>同步问题：线程使用公共变量/内存时需要使用同步机制还是因为他们在同一个地址空间内</li>
+</ul>
+<ol>
+<li>下述解决死锁的方法中，属于死锁预防策略的是？</li>
+</ol>
+<ul>
+<li>银行家算法：避免死锁</li>
+<li>资源有序分配法：预防死锁</li>
+<li>资源分配图化简法：检测死锁</li>
+<li>撤销进程法：解决死锁</li>
+</ul>
+<ol>
+<li>下面代码输出的结果是？</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public class NULL &#123;</span><br><span class="line"></span><br><span class="line">public static void print()&#123;</span><br><span class="line">System.out.println(“MTDP”);</span><br><span class="line">&#125;</span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">((NULL)null).print(); </span><br><span class="line">&#125;catch(NullPointerException e)&#123;</span><br><span class="line">System.out.println(<span class="string">"NullPointerException"</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>答案:MTDP,null既不是一种对象也不是一种类型，它仅是一种特殊的值，你可以将其赋给任何引用类型，也可以转化成任何类型。</li>
+</ul>
+<ol>
+<li>类a继承类b并重写b类的protected方法func时，a中func方法的访问修饰符可以是？</li>
+</ol>
+<ul>
+<li>重写方法不能比被重写方法限制有更严格的访问级别。</li>
+<li>重写方法不能抛出新的异常或者比被重写方法声明的检查异常更广的检查异常。但是可以抛出更少，更有限或者不抛出异常。</li>
+</ul>
+<p>12 . HTTP会话中的四个过程:</p>
+<ul>
+<li>建立连接</li>
+<li>发送请求</li>
+<li>返回响应</li>
+<li>关闭连接</li>
+</ul>
+<ol>
+<li>下面哪些是interface中合法方法定义?</li>
+</ol>
+<p>(1)public static void main(String [] args)；<br>(2)boolean setFlags(Boolean [] results)；<br>(3)private float get(int x)；<br>(4)static int getCount()；</p>
+<ul>
+<li>答案:(2),static方法在interface中要有body，故A、D错误;private修饰的方法不可以出现在interface中，故C错误</li>
+</ul>
+<ol>
+<li>红黑树是每个节点都带有颜色属性的二叉查找树，颜色或红色或黑色。在二叉查找树强制一般要求以外，对于任何有效的红黑树我们增加了如下的额外要求:</li>
+</ol>
+<ul>
+<li>性质1. 节点是红色或黑色。</li>
+<li>性质2. 根节点是黑色。</li>
+<li>性质3 每个叶节点（NIL节点，空节点）是黑色的。</li>
+<li>性质4 每个红色节点的两个子节点都是黑色。(从每个叶子到根的所有路径上不能有两个连续的红色节点)</li>
+<li>性质5. 从任一节点到其每个叶子的所有路径都包含相同数目的黑色节点。</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">校招</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔试</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">美团</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/23/美团笔试2017校招选择题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Django简易开发教程-3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1079,125 +1270,6 @@
 
 
   
-    <article id="post-Python进阶用法-3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/19/Python进阶用法-3/">Python进阶用法(三)</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/19/Python进阶用法-3/" class="archive-article-date">
-  	<time datetime="2018-03-19T02:20:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>多进程</li>
-</ol>
-<ul>
-<li>python中创建多线程的方法有两种，一种是fork，一种是multiprocessing，fork是linux或者Mac内使用的，multiprocessing则可以在windows下使用.</li>
-<li>创建子进程时，只需要传入一个执行函数和函数的参数，创建一个Process实例用start()方法启动，这样创建进程比fork()还要简单。join()方法可以等待子进程结束后再继续往下运行，通常用于进程间的同步。</li>
-<li>如果需要大量生产子进程，我们可以使用进程池pool其使用方法为:<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">p = Pool(<span class="number">4</span>)</span><br><span class="line"><span class="keyword">for</span> I <span class="keyword">in</span> range(<span class="number">6</span>):</span><br><span class="line">  do something</span><br><span class="line">p.close()</span><br><span class="line">p.join()</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>要在join()等待同步前先调用close()</p>
-<ul>
-<li>进程间的通信通过queue、pipes来实现，通常用队列来实现，一个方法进行写操作，一个方法进行读操作.</li>
-</ul>
-<ol>
-<li>多线程:</li>
-</ol>
-<ul>
-<li>python标准库中有两个模块提供多线程服务，一个是_thread，一个是threading，它通常情况下我们使用threading，因为它对_thread进行了一定的封装.<br>以下为用法示例:<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">xxx</span><span class="params">()</span>:</span></span><br><span class="line">  <span class="keyword">pass</span></span><br><span class="line">threadA = threading.Thread(target = xxx,name = ‘text_thread’)</span><br><span class="line">threadA.start()</span><br><span class="line">threadA.join()</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>每隔进程开启时默认就会启动一个线程,current_thread()函数可以查看当前线程的实例.</p>
-<ul>
-<li><p>多线程不同于多进程，多进程中，同一个变量，各自有一份拷贝存在于每一个进程中，互不影响，但是多线程则是共享同一个进程中的变量，这样每一个线程都有修改变量的权利，如果同时处理一个变量的时候就会出现异常的情况.<br>为了处理这种情况，则我们需要给处理共享数据的方法上一把Lock锁，当某个线程获得锁的时候才可以对数据进行操作，没有获得锁的线程则进入等待状态.当当前线程处理完的时候，再把锁释放掉，让另一个进程获得.我们通常通过try..finally来确保锁被释放掉，否则会出现死锁的情况.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">lock = threading.lock()<span class="comment">#创建锁</span></span><br><span class="line">lock.acquire()<span class="comment">#请求获得锁</span></span><br><span class="line">lock.release()<span class="comment">#释放锁</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Python本身具有GIL全局锁，即python程序默认只能单核运行.如果要改变这种状况，一般需要结合C语言进行实现.</p>
-</li>
-<li>在多线程环境下，每隔线程都有自己的数据。一个线程使用自己的局部变量比使用全局变量要好，因为局部变量只有线程自己可以看得见，不会影响其他线程，而全局变量修改常常涉及加锁释放锁.而TheadLocal可以让我们很方便地创建线程自己的局部变量而不影响其他线程.thread_local = threading.local()</li>
-<li>ThreadLocal解决了参数在一个线程中各个函数之间互相传递的问题</li>
-<li>分布式进程:可以通过multiprocessing.managers模块把Queue暴露出去，从而可以让其他机器的进程访问Queue了.<br>具体参考廖神代码: <a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431929340191970154d52b9d484b88a7b343708fcc60000" target="_blank" rel="noopener">https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431929340191970154d52b9d484b88a7b343708fcc60000</a></li>
-<li>协程，又称微线程，纤程。对于普通的子程序(函数)中，调用顺序是明确的，有层级的，但是在协程中，函数在执行过程中可以中断并跳到另一个函数(子程序)执行操作，然后在适合的时候再跳回来执行.协程的特点在于是一个线程执行，因此协程的切换是函数间的切换而不是子线程间的切换，因此节省了开销,而且在一个线程内我们不用担心共享资源加锁问题，只要判断好状态就好了.<br>在python中,协程的实现是通过generator生成器实现的,yield这个函数不仅可以返回一个值，还可以接受从子程序穿过来的值,子程序通过另一个程序(函数)对象(generator)的send()方法即可很方便得传输数据.</li>
-<li>异步io:</li>
-</ul>
-<ol>
-<li>asyncio是python3.4引入的标准库，直接内置了对异步IO的支持</li>
-<li>我们通过@asyncio.coroutine把一个generator标记为coroutine(协程)类型,然后把这个coroutine扔到Eventloop中执行<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">loop = asyncio.get_event_loop()</span><br><span class="line">loop.run_until_complete(hello())</span><br><span class="line">loop.close()</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>如果需要多个协程进行则<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">task = [help(),hello()]</span><br><span class="line">loop = asyncio.get_event_loop()</span><br><span class="line">loop.run_until_complete(asyncio.wait(task))</span><br><span class="line">loop.close()</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>Async/await代码用法同上 3.5版本以上支持.</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Python进阶用法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/19/Python进阶用法-3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1315,6 +1387,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
               </li>
              
@@ -1327,15 +1403,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">Vim</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">校招</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">美团</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Python进阶用法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vim</a>
               </li>
             
             <div class="clearfix"></div>
