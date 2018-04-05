@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Git与Github知识点(二) | KoiCarrot</title>
+  <title>知乎后端工程师面试 | KoiCarrot</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="分支1、    git branch(查看当前工作区的所有分支)  git branch –a(查看当前工作区以及远程工作区的所有分支)  2、    git branch xxx(创建分支XXX)3、    git checkout xxx(转到分支XXX)4、    git diff master..xxx(查看master分支与xxx分支的区别)5、    git merge xxx(合并分">
-<meta name="keywords" content="Git,Github,Git与Github知识点">
+  <meta name="description" content="前两天去知乎公司面试了，现在把面试过程中遇到的一些问题记录下来，已督促自己更好地进步！ 一面 要求将两个排好序的列表合并成一个排好序的列表(手写) 索引的使用及其原理 特定一个功能，设计其数据库表(简单手写) 经典快排思想 flask.g的使用及其作用域 GIL锁问题，死锁问题 进程线程的区别 详细说一下从浏览器点击url到浏览器响应的整个过程 2xx 3xx 4xx 5xx各状态码代表的含义 3">
+<meta name="keywords" content="Python,面试,后端开发">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git与Github知识点(二)">
-<meta property="og:url" content="http://yoursite.com/2018/03/19/Git与Github知识点-2/index.html">
+<meta property="og:title" content="知乎后端工程师面试">
+<meta property="og:url" content="http://yoursite.com/2018/04/05/知乎后端工程师面试/index.html">
 <meta property="og:site_name" content="KoiCarrot">
-<meta property="og:description" content="分支1、    git branch(查看当前工作区的所有分支)  git branch –a(查看当前工作区以及远程工作区的所有分支)  2、    git branch xxx(创建分支XXX)3、    git checkout xxx(转到分支XXX)4、    git diff master..xxx(查看master分支与xxx分支的区别)5、    git merge xxx(合并分">
+<meta property="og:description" content="前两天去知乎公司面试了，现在把面试过程中遇到的一些问题记录下来，已督促自己更好地进步！ 一面 要求将两个排好序的列表合并成一个排好序的列表(手写) 索引的使用及其原理 特定一个功能，设计其数据库表(简单手写) 经典快排思想 flask.g的使用及其作用域 GIL锁问题，死锁问题 进程线程的区别 详细说一下从浏览器点击url到浏览器响应的整个过程 2xx 3xx 4xx 5xx各状态码代表的含义 3">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-19T06:47:54.648Z">
+<meta property="og:updated_time" content="2018-04-05T01:45:21.993Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git与Github知识点(二)">
-<meta name="twitter:description" content="分支1、    git branch(查看当前工作区的所有分支)  git branch –a(查看当前工作区以及远程工作区的所有分支)  2、    git branch xxx(创建分支XXX)3、    git checkout xxx(转到分支XXX)4、    git diff master..xxx(查看master分支与xxx分支的区别)5、    git merge xxx(合并分">
+<meta name="twitter:title" content="知乎后端工程师面试">
+<meta name="twitter:description" content="前两天去知乎公司面试了，现在把面试过程中遇到的一些问题记录下来，已督促自己更好地进步！ 一面 要求将两个排好序的列表合并成一个排好序的列表(手写) 索引的使用及其原理 特定一个功能，设计其数据库表(简单手写) 经典快排思想 flask.g的使用及其作用域 GIL锁问题，死锁问题 进程线程的区别 详细说一下从浏览器点击url到浏览器响应的整个过程 2xx 3xx 4xx 5xx各状态码代表的含义 3">
   
     <link rel="alternative" href="/atom.xml" title="KoiCarrot" type="application/atom+xml">
   
@@ -139,37 +139,55 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Git与Github知识点-2" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-知乎后端工程师面试" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Git与Github知识点(二)
+      知乎后端工程师面试
     </h1>
   
 
         
-        <a href="/2018/03/19/Git与Github知识点-2/" class="archive-article-date">
-  	<time datetime="2018-03-19T06:27:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
+        <a href="/2018/04/05/知乎后端工程师面试/" class="archive-article-date">
+  	<time datetime="2018-04-05T01:02:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h1><p>1、    git branch(查看当前工作区的所有分支)</p>
-<ul>
-<li>git branch –a(查看当前工作区以及远程工作区的所有分支)</li>
+        <h3 id="前两天去知乎公司面试了，现在把面试过程中遇到的一些问题记录下来，已督促自己更好地进步！"><a href="#前两天去知乎公司面试了，现在把面试过程中遇到的一些问题记录下来，已督促自己更好地进步！" class="headerlink" title="前两天去知乎公司面试了，现在把面试过程中遇到的一些问题记录下来，已督促自己更好地进步！"></a>前两天去知乎公司面试了，现在把面试过程中遇到的一些问题记录下来，已督促自己更好地进步！</h3><hr>
+<h2 id="一面"><a href="#一面" class="headerlink" title="一面"></a>一面</h2><ul>
+<li>要求将两个排好序的列表合并成一个排好序的列表(手写)</li>
+<li>索引的使用及其原理</li>
+<li>特定一个功能，设计其数据库表(简单手写)</li>
+<li>经典快排思想</li>
+<li>flask.g的使用及其作用域</li>
+<li>GIL锁问题，死锁问题</li>
+<li>进程线程的区别</li>
+<li>详细说一下从浏览器点击url到浏览器响应的整个过程</li>
+<li>2xx 3xx 4xx 5xx各状态码代表的含义</li>
+<li>301永久重定向和302临时重定向的使用问题(长短链接问题)</li>
+<li>装饰器的使用(手写一个具有简单缓存功能的装饰器)<blockquote>
+<blockquote>
+<p>目前还记得就是这些了，每一个问题都可能涉及到一些别的问题，整个过程是连续的，当聊的过程中提到什么知识点就可能对其进行延伸，与面试官交谈的整个过程还是相对轻松愉快的，对很多问题也给出了解答与优化，往往会发现自己想的不尽周全</p>
+</blockquote>
+</blockquote>
+<h2 id="二面"><a href="#二面" class="headerlink" title="二面"></a>二面</h2></li>
+<li>简单介绍一下自己的项目</li>
+<li>说一下项目里的数据库设计，是怎么查询的，如何实现模糊查询，如何优化</li>
+<li>例如有一个要求把长链转换成短链，要如何实现，允许26个大小字母和0~9组合成的字符串表示</li>
+<li>近期最想做什么</li>
+<li>如何进行分布式爬虫，所谓分布式是什么<blockquote>
+<blockquote>
+<p>由于自己项目经验较少，所以很多问题回答的并不理想，又或者说很差，主要还是对自己的项目掌握得不够好，做得时候没有回来审视项目，如何优化以及添加功能等问题，但是整个过程面试官会诱导我进行一步步解答，直到解出正确答案，这个过程很棒！</p>
+</blockquote>
+</blockquote>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2>二面完了就到饭点了，面试官就说之后会有HR联系我，我一度很桑心觉得自己被挂了，结果面试官告诉我二面过了，顿时开森，即使下雨天也大步往前走了，希望我日后也能一直这么大步向前吧！</li>
 </ul>
-<p>2、    git branch xxx(创建分支XXX)<br>3、    git checkout xxx(转到分支XXX)<br>4、    git diff master..xxx(查看master分支与xxx分支的区别)<br>5、    git merge xxx(合并分支)</p>
-<ul>
-<li>默认采用Fast-Forward合并，这种合并并不会产生版本控制信息</li>
-<li>合并通常会遇到冲突，我们需要先解决冲突</li>
-<li>git merge –no-ff xxx通常会更好</li>
-</ul>
-<p>6、    git branch –m oldname newname(更改分支名字)<br>7、    git branch –d tag1(删除分支)</p>
 
       
 
@@ -183,15 +201,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Github</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git与Github知识点</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">后端开发</a>
         		</li>
       		
 		</ul>
@@ -247,7 +265,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/03/19/Git与Github知识点-2/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/04/05/知乎后端工程师面试/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -261,18 +279,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/03/19/Git与Github知识点-3/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Git与Github知识点(三)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/03/19/Git与Github知识点-1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Git与Github知识点(一)</div>
+    <a href="/2018/03/23/美团笔试2017校招选择题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">美团笔试2017校招选择题</div>
       <i class="icon-circle-right"></i>
     </a>
   

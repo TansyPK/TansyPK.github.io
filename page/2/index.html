@@ -140,6 +140,130 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Linux-command" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/19/Linux-command/">Linux_command(常用命令)</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/19/Linux-command/" class="archive-article-date">
+  	<time datetime="2018-03-19T06:17:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>ls\ls –a\ls –al\ls –alh显示文件目录</li>
+<li>ll 相当于ls –alh</li>
+<li>pwd 当前路径</li>
+<li>cd 跳转</li>
+<li>xxx –help –man 帮助信息</li>
+<li>history 历史信息</li>
+<li>command &gt; xxx.txt 重定向 覆盖XXX.TXT的内容</li>
+<li>command &gt;&gt; xxx.txt 同样重定向 不过追加到XXX.TXT内容后面</li>
+<li>| 管道 可以连接两个命令 ls | more</li>
+<li>More 如果输出信息太多，屏幕显示不全，那么more可以分屏显示</li>
+<li>Mkdir 创建文件夹</li>
+<li>Rm 删除文件 </li>
+<li>Rmdir 删除文件夹</li>
+<li>Rm –rf 可以删除任何文件或者文件夹 –r表示递归</li>
+<li>Tree 可以显示目录树</li>
+<li>Ln –s xxx.txt aaa.txt 软链接 类似windows的快捷方式</li>
+<li>Cat 显示文本信息</li>
+<li>Mv 可以移动也可以易名</li>
+<li>Ln xxx.txt aaa.txt 硬链接</li>
+<li>Grep “…” xxx.txt 在文本中查找显示</li>
+<li>Find ./ -name “….” 在路径中查找文件</li>
+<li>Cp 复制文件 –r递归复制</li>
+<li>Tar –cvf xxx.tar *.py 打包 不压缩 </li>
+<li>Tar –xvf xxx.tar 解包 不压缩 –C 解压缩到指定路径</li>
+<li>Tar –zcvf xxx.tar.gz *.py 打包加压缩</li>
+<li>Tar –zxvf xxx.tar.gz 解压缩包</li>
+<li>Tar –jcvf xxx.tar.bz2 *.py bz2格式压缩包</li>
+<li>Tar –jxvf xxx.tar.bz2 解压缩bz2</li>
+<li>Zip zzz.zip *.py</li>
+<li>Unzip zzz.zip</li>
+<li>Which 链接 显示链接文件在哪</li>
+<li>Cal 显示日历</li>
+<li>Date显示时间</li>
+<li>Ps (process)进程 ps –aux 所有的进程</li>
+<li>Top 显示正在进行的进程</li>
+<li>Htop 高级显示正在进行的进程</li>
+<li>Kill 杀掉进程 kill pid (kill -9 pid 删除无论如何)</li>
+<li>Reboot 重启</li>
+<li>Shutdown –h now立刻关机 </li>
+<li>Df 显示硬盘使用情况</li>
+<li>Du显示路径占有空间</li>
+<li>Ifconfig 查看当前电脑网络信息</li>
+<li>Ping 检测网络连接</li>
+<li>Useradd xxx –m</li>
+<li>/etc/passwd 用户管理文件</li>
+<li>Passwd xxx 设置密码</li>
+<li>Whoami 显示当前用户</li>
+<li>Exit 退出当前用户</li>
+<li>Ssh 远程连接</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/19/Linux-command/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Python进阶用法-3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -898,10 +1022,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
               </li>
              
@@ -910,15 +1030,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Python进阶用法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python知识点随记</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Python进阶用法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vim</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">后端开发</a>
               </li>
              
               <li class="article-tag-list-item">
