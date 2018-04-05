@@ -140,6 +140,104 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-基本数据结构与算法-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/05/基本数据结构与算法-1/">基本数据结构与算法(一)</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/05/基本数据结构与算法-1/" class="archive-article-date">
+  	<time datetime="2018-04-05T02:15:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h1><ol>
+<li><p>冒泡排序</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">maopao</span><span class="params">(array)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    冒泡排序</span></span><br><span class="line"><span class="string">    时间复杂度O(n2),额外空间复杂度O(1)</span></span><br><span class="line"><span class="string">    :param array: 数组</span></span><br><span class="line"><span class="string">    :return: 数组</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="keyword">if</span> array == [] <span class="keyword">or</span> len(array)&lt;<span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(array)<span class="number">-1</span>,<span class="number">0</span>,<span class="number">-1</span>):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(i):</span><br><span class="line">            <span class="keyword">if</span> array[j] &gt; array[j+<span class="number">1</span>]:</span><br><span class="line">                array[j],array[j+<span class="number">1</span>] = array[j+<span class="number">1</span>],array[j]</span><br><span class="line">    <span class="keyword">return</span> array</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    a = [<span class="number">2</span>,<span class="number">14</span>,<span class="number">5</span>,<span class="number">245</span>,<span class="number">323</span>]</span><br><span class="line">    print(maopao(a))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>选择排序</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding : utf-8 -*-</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">xuanze</span><span class="params">(array)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    选择排序</span></span><br><span class="line"><span class="string">    时间复杂的O(n2)</span></span><br><span class="line"><span class="string">    额外空间复杂的O(1)</span></span><br><span class="line"><span class="string">    :param array: 数组</span></span><br><span class="line"><span class="string">    :return: 数组</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="keyword">if</span> array == [] <span class="keyword">or</span> len(array)&lt;<span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(array)):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(i+<span class="number">1</span>,len(array)):</span><br><span class="line">            <span class="keyword">if</span> array[i] &gt; array[j]:</span><br><span class="line">                array[i],array[j] = array[j],array[i]</span><br><span class="line">    <span class="keyword">return</span> array</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    a = [<span class="number">3</span>, <span class="number">1</span>, <span class="number">22</span>, <span class="number">5</span>, <span class="number">11</span>, <span class="number">7</span>, <span class="number">6</span>]</span><br><span class="line">    print(xuanze(a))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>插入排序</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">charu</span><span class="params">(array)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    插入排序</span></span><br><span class="line"><span class="string">    时间复杂度O(n2)</span></span><br><span class="line"><span class="string">    额外空间复杂的O(1)</span></span><br><span class="line"><span class="string">    当常数项很小(&lt;=60)选择插入排序</span></span><br><span class="line"><span class="string">    :param array: 数组</span></span><br><span class="line"><span class="string">    :return: 数组</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="keyword">if</span> array == [] <span class="keyword">or</span> len(array)&lt;<span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(array)):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(i):</span><br><span class="line">            <span class="keyword">if</span> array[i] &lt; array[j]:</span><br><span class="line">                array[i],array[j] = array[j],array[i]</span><br><span class="line">    <span class="keyword">return</span> array</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    a = [<span class="number">1</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">0</span>,<span class="number">88</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">4</span>]</span><br><span class="line">    print(charu(a))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>归并排序</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge</span><span class="params">(array,l,mid,r)</span>:</span></span><br><span class="line">    print(array,l,mid,r)</span><br><span class="line">    help_ = []</span><br><span class="line">    p1 = l</span><br><span class="line">    p2 = mid+<span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span>(p1&lt;=mid <span class="keyword">and</span> p2&lt;=r):</span><br><span class="line">        <span class="keyword">if</span> array[p1]&lt;array[p2]:</span><br><span class="line">            help_.append(array[p1])</span><br><span class="line">            p1+=<span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> array[p2]&lt;array[p1]:</span><br><span class="line">            help_.append(array[p2])</span><br><span class="line">            p2+=<span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span>(p1&lt;=mid):</span><br><span class="line">        help_.append(array[p1])</span><br><span class="line">    <span class="keyword">while</span>(p2&lt;=r):</span><br><span class="line">        help_.append(array[p2])</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(help_)):</span><br><span class="line">        array[l+i] = help_[i]</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">guibing_</span><span class="params">(array,l,r)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> l == r:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    mid = l + (r-l)//<span class="number">2</span></span><br><span class="line">    print(array,l,r,mid)</span><br><span class="line">    guibing_(array,l,mid)</span><br><span class="line">    guibing_(array,mid+<span class="number">1</span>,r)</span><br><span class="line">    merge(array,l,mid,r)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">guibing</span><span class="params">(array)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    归并排序</span></span><br><span class="line"><span class="string">    时间复杂度O(N*logN)</span></span><br><span class="line"><span class="string">    额外空间复杂度O(N)</span></span><br><span class="line"><span class="string">    :param array:数组</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="keyword">if</span> array == [] <span class="keyword">or</span> len(array)&lt;<span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    guibing_(array,<span class="number">0</span>,len(array)<span class="number">-1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    a = [<span class="number">12</span>,<span class="number">3</span>,<span class="number">1</span>]</span><br><span class="line">    guibing(a)</span><br><span class="line">    print(a)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>快速排序</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">swap</span><span class="params">(array,a,b)</span>:</span></span><br><span class="line">    array[a],array[b] = array[b],array[a]</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">partation</span><span class="params">(array,l,r)</span>:</span></span><br><span class="line">    less = l<span class="number">-1</span></span><br><span class="line">    more = r</span><br><span class="line">    index = l</span><br><span class="line">    <span class="keyword">while</span> index &lt; more:</span><br><span class="line">        print(index,more)</span><br><span class="line">        <span class="keyword">if</span> array[index]&lt;array[r]:</span><br><span class="line">            swap(array,index,less+<span class="number">1</span>)</span><br><span class="line">            less+=<span class="number">1</span></span><br><span class="line">            index+=<span class="number">1</span></span><br><span class="line">        <span class="keyword">elif</span> array[index]&gt;array[r]:</span><br><span class="line">            swap(array,index,more<span class="number">-1</span>)</span><br><span class="line">            more-=<span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            index+=<span class="number">1</span></span><br><span class="line">    swap(array,r,more)</span><br><span class="line">    <span class="keyword">return</span> less+<span class="number">1</span>,more</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">quicksort_nn</span><span class="params">(array,l,r)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> l&gt;r:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        num = l + int(random.random() * (r - l+<span class="number">1</span>))</span><br><span class="line">        swap(array, <span class="number">-1</span>, num)</span><br><span class="line">        p1,p2 = partation(array,l,r)</span><br><span class="line">        quicksort_nn(array,l,p1<span class="number">-1</span>)</span><br><span class="line">        quicksort_nn(array,p2+<span class="number">1</span>,r)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">quicksort_new</span><span class="params">(array)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    随机快排，不需要辅助空间</span></span><br><span class="line"><span class="string">    时间复杂度长期期望O(N*logN)</span></span><br><span class="line"><span class="string">    额外空间复杂度O(1)</span></span><br><span class="line"><span class="string">    :param array:</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="keyword">if</span> len(array)&lt;<span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        l = <span class="number">0</span></span><br><span class="line">        r = len(array)<span class="number">-1</span></span><br><span class="line">        quicksort_nn(array,l,r)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">quicksort</span><span class="params">(array)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    经典快速排序，需要辅助空间版本</span></span><br><span class="line"><span class="string">    时间复杂度按最坏情况算O(n2)</span></span><br><span class="line"><span class="string">    额外空间复杂度O(n)</span></span><br><span class="line"><span class="string">    :param array:数组</span></span><br><span class="line"><span class="string">    :return:数组</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="keyword">if</span> len(array)&lt;<span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span> array</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        p = array[<span class="number">0</span>]</span><br><span class="line">        left = [x <span class="keyword">for</span> x <span class="keyword">in</span> array[<span class="number">1</span>:] <span class="keyword">if</span> x &lt;= p]</span><br><span class="line">        right = [x <span class="keyword">for</span> x <span class="keyword">in</span> array[<span class="number">1</span>:] <span class="keyword">if</span> x &gt; p]</span><br><span class="line">        <span class="keyword">return</span> quicksort(left)+[p]+quicksort(right)</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    a = [<span class="number">1</span>,<span class="number">3123</span>,<span class="number">3</span>,<span class="number">6</span>,<span class="number">0</span>,<span class="number">123</span>]</span><br><span class="line">    quicksort_new(a)</span><br><span class="line">    print(a)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/05/基本数据结构与算法-1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-知乎后端工程师面试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1130,131 +1228,6 @@
 
 
   
-    <article id="post-Vi-command" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/19/Vi-command/">Vi_command(常用命令)</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/19/Vi-command/" class="archive-article-date">
-  	<time datetime="2018-03-19T06:19:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>vim 1.py 打开vim/vi</li>
-<li>初始命令模式 按：末行模式 按i,a,o进入编辑模式 esc退回命令模式</li>
-<li>yy 复制光标所在的这一行 </li>
-<li>4yy 光标所在的这一行向下所在的四行</li>
-<li>p 粘贴</li>
-<li>dd 剪切 光标所在的一行</li>
-<li>2dd 光标所在的这一行往下剪切两行</li>
-<li>h 左 l右 j下 k上</li>
-<li>M当前屏幕的中间 H头 L尾</li>
-<li>Ctlr+f 向下翻一页代码</li>
-<li>Ctlr+b 向上翻一页代码</li>
-<li>Ctlr +u 上翻半页</li>
-<li>Ctlr +b 下翻半页</li>
-<li>20G 快速定位到第二十行代码</li>
-<li>G 跳到未见最末尾</li>
-<li>gg 快速回到整个代码的第一行</li>
-<li>w 以单词进行划分，跳到下一个单词</li>
-<li>b 向前跳一个单词的长度</li>
-<li>D 从当前光标开始剪切一直到行末</li>
-<li>u 撤消刚刚的操作</li>
-<li>ctrl+r 反撤销</li>
-<li>d0 从当前光标开始剪切一直到行首</li>
-<li>x 删除当前的光标，每次只会删一个</li>
-<li>X 删除当前光标前面的那个 每次只删除一个</li>
-<li>v 选中</li>
-<li>V 整行选中</li>
-<li><blockquote>
-<blockquote>
-<p>向右移动代码</p>
-</blockquote>
-</blockquote>
-</li>
-<li>&lt;&lt; 向左移动代码</li>
-<li>. 重复执行之前操作</li>
-<li>} 一片片向右跳代码</li>
-<li>{ 一片片向左跳代码</li>
-<li>dw 删除一个单词</li>
-<li>r  替换一个字母</li>
-<li>R 替换一行字母</li>
-<li>/ 搜索内容</li>
-<li>N 搜索的内容往上走</li>
-<li>n 搜索的内容往下走</li>
-<li>末行模式 : %s/xxx/xxxx/g替换正片代码</li>
-<li>末行模式 : 1,10s/xxx/xxxx/g替换1-10行的代码</li>
-<li>末行模式: wq q!</li>
-<li>Shift+zz 保存退出</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vim</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/19/Vi-command/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1380,11 +1353,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python知识点随记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python知识点随记</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1393,6 +1366,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vim</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">

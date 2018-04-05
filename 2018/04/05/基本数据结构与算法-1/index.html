@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | KoiCarrot</title>
+  <title>基本数据结构与算法(一) | KoiCarrot</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Python Coder Zone">
-<meta name="keywords" content="python,flask,django,mysql,mongodb,java,html,css,nginx,tcp&#x2F;ip,http,gunicorn">
-<meta property="og:type" content="website">
-<meta property="og:title" content="KoiCarrot">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="排序 冒泡排序 123456789101112131415161718# -*- coding: utf-8 -*-def maopao(array):    &apos;&apos;&apos;    冒泡排序    时间复杂度O(n2),额外空间复杂度O(1)    :param array: 数组    :return: 数组    &apos;&apos;&apos;    if array == [] or len(array)&amp;lt;2:">
+<meta name="keywords" content="Python,算法,数据结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基本数据结构与算法(一)">
+<meta property="og:url" content="http://yoursite.com/2018/04/05/基本数据结构与算法-1/index.html">
 <meta property="og:site_name" content="KoiCarrot">
-<meta property="og:description" content="Python Coder Zone">
+<meta property="og:description" content="排序 冒泡排序 123456789101112131415161718# -*- coding: utf-8 -*-def maopao(array):    &apos;&apos;&apos;    冒泡排序    时间复杂度O(n2),额外空间复杂度O(1)    :param array: 数组    :return: 数组    &apos;&apos;&apos;    if array == [] or len(array)&amp;lt;2:">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-04-05T02:49:27.106Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="KoiCarrot">
-<meta name="twitter:description" content="Python Coder Zone">
+<meta name="twitter:title" content="基本数据结构与算法(一)">
+<meta name="twitter:description" content="排序 冒泡排序 123456789101112131415161718# -*- coding: utf-8 -*-def maopao(array):    &apos;&apos;&apos;    冒泡排序    时间复杂度O(n2),额外空间复杂度O(1)    :param array: 数组    :return: 数组    &apos;&apos;&apos;    if array == [] or len(array)&amp;lt;2:">
   
     <link rel="alternative" href="/atom.xml" title="KoiCarrot" type="application/atom+xml">
   
@@ -138,36 +139,51 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-基本数据结构与算法-1" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/05/基本数据结构与算法-1/" class="archive-article-date">
-  	<time datetime="2018-04-05T02:15:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-05</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/05/基本数据结构与算法-1/">基本数据结构与算法(一)</a>
+    <h1 class="article-title" itemprop="name">
+      基本数据结构与算法(一)
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/04/05/基本数据结构与算法-1/" class="archive-article-date">
+  	<time datetime="2018-04-05T02:15:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h1><ol>
+<li><p>冒泡排序</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">maopao</span><span class="params">(array)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    冒泡排序</span></span><br><span class="line"><span class="string">    时间复杂度O(n2),额外空间复杂度O(1)</span></span><br><span class="line"><span class="string">    :param array: 数组</span></span><br><span class="line"><span class="string">    :return: 数组</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="keyword">if</span> array == [] <span class="keyword">or</span> len(array)&lt;<span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(array)<span class="number">-1</span>,<span class="number">0</span>,<span class="number">-1</span>):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(i):</span><br><span class="line">            <span class="keyword">if</span> array[j] &gt; array[j+<span class="number">1</span>]:</span><br><span class="line">                array[j],array[j+<span class="number">1</span>] = array[j+<span class="number">1</span>],array[j]</span><br><span class="line">    <span class="keyword">return</span> array</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    a = [<span class="number">2</span>,<span class="number">14</span>,<span class="number">5</span>,<span class="number">245</span>,<span class="number">323</span>]</span><br><span class="line">    print(maopao(a))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>选择排序</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding : utf-8 -*-</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">xuanze</span><span class="params">(array)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    选择排序</span></span><br><span class="line"><span class="string">    时间复杂的O(n2)</span></span><br><span class="line"><span class="string">    额外空间复杂的O(1)</span></span><br><span class="line"><span class="string">    :param array: 数组</span></span><br><span class="line"><span class="string">    :return: 数组</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="keyword">if</span> array == [] <span class="keyword">or</span> len(array)&lt;<span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(array)):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(i+<span class="number">1</span>,len(array)):</span><br><span class="line">            <span class="keyword">if</span> array[i] &gt; array[j]:</span><br><span class="line">                array[i],array[j] = array[j],array[i]</span><br><span class="line">    <span class="keyword">return</span> array</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    a = [<span class="number">3</span>, <span class="number">1</span>, <span class="number">22</span>, <span class="number">5</span>, <span class="number">11</span>, <span class="number">7</span>, <span class="number">6</span>]</span><br><span class="line">    print(xuanze(a))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>插入排序</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">charu</span><span class="params">(array)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    插入排序</span></span><br><span class="line"><span class="string">    时间复杂度O(n2)</span></span><br><span class="line"><span class="string">    额外空间复杂的O(1)</span></span><br><span class="line"><span class="string">    当常数项很小(&lt;=60)选择插入排序</span></span><br><span class="line"><span class="string">    :param array: 数组</span></span><br><span class="line"><span class="string">    :return: 数组</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="keyword">if</span> array == [] <span class="keyword">or</span> len(array)&lt;<span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(array)):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(i):</span><br><span class="line">            <span class="keyword">if</span> array[i] &lt; array[j]:</span><br><span class="line">                array[i],array[j] = array[j],array[i]</span><br><span class="line">    <span class="keyword">return</span> array</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    a = [<span class="number">1</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">0</span>,<span class="number">88</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">4</span>]</span><br><span class="line">    print(charu(a))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>归并排序</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge</span><span class="params">(array,l,mid,r)</span>:</span></span><br><span class="line">    print(array,l,mid,r)</span><br><span class="line">    help_ = []</span><br><span class="line">    p1 = l</span><br><span class="line">    p2 = mid+<span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span>(p1&lt;=mid <span class="keyword">and</span> p2&lt;=r):</span><br><span class="line">        <span class="keyword">if</span> array[p1]&lt;array[p2]:</span><br><span class="line">            help_.append(array[p1])</span><br><span class="line">            p1+=<span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> array[p2]&lt;array[p1]:</span><br><span class="line">            help_.append(array[p2])</span><br><span class="line">            p2+=<span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span>(p1&lt;=mid):</span><br><span class="line">        help_.append(array[p1])</span><br><span class="line">    <span class="keyword">while</span>(p2&lt;=r):</span><br><span class="line">        help_.append(array[p2])</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(help_)):</span><br><span class="line">        array[l+i] = help_[i]</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">guibing_</span><span class="params">(array,l,r)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> l == r:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    mid = l + (r-l)//<span class="number">2</span></span><br><span class="line">    print(array,l,r,mid)</span><br><span class="line">    guibing_(array,l,mid)</span><br><span class="line">    guibing_(array,mid+<span class="number">1</span>,r)</span><br><span class="line">    merge(array,l,mid,r)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">guibing</span><span class="params">(array)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    归并排序</span></span><br><span class="line"><span class="string">    时间复杂度O(N*logN)</span></span><br><span class="line"><span class="string">    额外空间复杂度O(N)</span></span><br><span class="line"><span class="string">    :param array:数组</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="keyword">if</span> array == [] <span class="keyword">or</span> len(array)&lt;<span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    guibing_(array,<span class="number">0</span>,len(array)<span class="number">-1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    a = [<span class="number">12</span>,<span class="number">3</span>,<span class="number">1</span>]</span><br><span class="line">    guibing(a)</span><br><span class="line">    print(a)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>快速排序</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">swap</span><span class="params">(array,a,b)</span>:</span></span><br><span class="line">    array[a],array[b] = array[b],array[a]</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">partation</span><span class="params">(array,l,r)</span>:</span></span><br><span class="line">    less = l<span class="number">-1</span></span><br><span class="line">    more = r</span><br><span class="line">    index = l</span><br><span class="line">    <span class="keyword">while</span> index &lt; more:</span><br><span class="line">        print(index,more)</span><br><span class="line">        <span class="keyword">if</span> array[index]&lt;array[r]:</span><br><span class="line">            swap(array,index,less+<span class="number">1</span>)</span><br><span class="line">            less+=<span class="number">1</span></span><br><span class="line">            index+=<span class="number">1</span></span><br><span class="line">        <span class="keyword">elif</span> array[index]&gt;array[r]:</span><br><span class="line">            swap(array,index,more<span class="number">-1</span>)</span><br><span class="line">            more-=<span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            index+=<span class="number">1</span></span><br><span class="line">    swap(array,r,more)</span><br><span class="line">    <span class="keyword">return</span> less+<span class="number">1</span>,more</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">quicksort_nn</span><span class="params">(array,l,r)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> l&gt;r:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        num = l + int(random.random() * (r - l+<span class="number">1</span>))</span><br><span class="line">        swap(array, <span class="number">-1</span>, num)</span><br><span class="line">        p1,p2 = partation(array,l,r)</span><br><span class="line">        quicksort_nn(array,l,p1<span class="number">-1</span>)</span><br><span class="line">        quicksort_nn(array,p2+<span class="number">1</span>,r)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">quicksort_new</span><span class="params">(array)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    随机快排，不需要辅助空间</span></span><br><span class="line"><span class="string">    时间复杂度长期期望O(N*logN)</span></span><br><span class="line"><span class="string">    额外空间复杂度O(1)</span></span><br><span class="line"><span class="string">    :param array:</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="keyword">if</span> len(array)&lt;<span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        l = <span class="number">0</span></span><br><span class="line">        r = len(array)<span class="number">-1</span></span><br><span class="line">        quicksort_nn(array,l,r)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">quicksort</span><span class="params">(array)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    经典快速排序，需要辅助空间版本</span></span><br><span class="line"><span class="string">    时间复杂度按最坏情况算O(n2)</span></span><br><span class="line"><span class="string">    额外空间复杂度O(n)</span></span><br><span class="line"><span class="string">    :param array:数组</span></span><br><span class="line"><span class="string">    :return:数组</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="keyword">if</span> len(array)&lt;<span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span> array</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        p = array[<span class="number">0</span>]</span><br><span class="line">        left = [x <span class="keyword">for</span> x <span class="keyword">in</span> array[<span class="number">1</span>:] <span class="keyword">if</span> x &lt;= p]</span><br><span class="line">        right = [x <span class="keyword">for</span> x <span class="keyword">in</span> array[<span class="number">1</span>:] <span class="keyword">if</span> x &gt; p]</span><br><span class="line">        <span class="keyword">return</span> quicksort(left)+[p]+quicksort(right)</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    a = [<span class="number">1</span>,<span class="number">3123</span>,<span class="number">3</span>,<span class="number">6</span>,<span class="number">0</span>,<span class="number">123</span>]</span><br><span class="line">    quicksort_new(a)</span><br><span class="line">    print(a)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -187,432 +203,105 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/04/05/基本数据结构与算法-1/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/05/知乎后端工程师面试/" class="archive-article-date">
-  	<time datetime="2018-04-05T01:02:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-05</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/04/05/知乎后端工程师面试/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">知乎后端工程师面试</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/05/知乎后端工程师面试/">知乎后端工程师面试</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">后端开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/23/美团笔试2017校招选择题/" class="archive-article-date">
-  	<time datetime="2018-03-23T02:52:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/23/美团笔试2017校招选择题/">美团笔试2017校招选择题</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">校招</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔试</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">美团</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/19/Django简易开发教程-3/" class="archive-article-date">
-  	<time datetime="2018-03-19T06:40:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/19/Django简易开发教程-3/">Django简易开发教程-3</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Django</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Django简易开发教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/19/Django简易开发教程-2/" class="archive-article-date">
-  	<time datetime="2018-03-19T06:39:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/19/Django简易开发教程-2/">Django简易开发教程-2</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Django</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Django简易开发教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/19/Django简易开发教程-1/" class="archive-article-date">
-  	<time datetime="2018-03-19T06:39:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/19/Django简易开发教程-1/">Django简易开发教程(一)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Django</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Django简易开发教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/19/Git与Github知识点-3/" class="archive-article-date">
-  	<time datetime="2018-03-19T06:27:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/19/Git与Github知识点-3/">Git与Github知识点(三)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Github</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git与Github知识点</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/19/Git与Github知识点-2/" class="archive-article-date">
-  	<time datetime="2018-03-19T06:27:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/19/Git与Github知识点-2/">Git与Github知识点(二)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Github</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git与Github知识点</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/19/Git与Github知识点-1/" class="archive-article-date">
-  	<time datetime="2018-03-19T06:27:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/19/Git与Github知识点-1/">Git与Github知识点(一)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Github</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git与Github知识点</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/19/Http浅认识/" class="archive-article-date">
-  	<time datetime="2018-03-19T06:23:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/19/Http浅认识/">Http浅认识(一)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络编程</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Http</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -636,8 +325,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
