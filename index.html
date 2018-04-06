@@ -140,6 +140,91 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-基本数据结构与算法-3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/06/基本数据结构与算法-3/">基本数据结构与算法-(三)</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/06/基本数据结构与算法-3/" class="archive-article-date">
+  	<time datetime="2018-04-06T09:00:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>二叉树先序，中序，后序遍历递归实现与非递归实现<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">tree</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,value,ltree=None,rtree=None)</span>:</span></span><br><span class="line">        self.value = value</span><br><span class="line">        self.ltree = ltree</span><br><span class="line">        self.rtree = rtree</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">qout</span><span class="params">(self,head)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> head:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        print(head.value)</span><br><span class="line">        self.qout(head.ltree)</span><br><span class="line">        self.qout(head.rtree)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mout</span><span class="params">(self,head)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> head:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        self.mout(head.ltree)</span><br><span class="line">        print(head.value)</span><br><span class="line">        self.mout(head.rtree)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">hout</span><span class="params">(self,head)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> head:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        self.hout(head.ltree)</span><br><span class="line">        self.hout(head.rtree)</span><br><span class="line">        print(head.value)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fei_qout</span><span class="params">(self,head)</span>:</span></span><br><span class="line">        stack = []</span><br><span class="line">        stack.append(head)</span><br><span class="line">        <span class="keyword">while</span> stack:</span><br><span class="line">            tmp = stack.pop()</span><br><span class="line">            print(tmp.value)</span><br><span class="line">            <span class="keyword">if</span> tmp.rtree:</span><br><span class="line">                stack.append(tmp.rtree)</span><br><span class="line">            <span class="keyword">if</span> tmp.ltree:</span><br><span class="line">                stack.append(tmp.ltree)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fei_mout</span><span class="params">(self,head)</span>:</span></span><br><span class="line">        stack = []</span><br><span class="line">        tmp = head</span><br><span class="line">        <span class="keyword">while</span> tmp <span class="keyword">or</span> stack:</span><br><span class="line">            <span class="keyword">if</span> tmp:</span><br><span class="line">                stack.append(tmp)</span><br><span class="line">                tmp = tmp.ltree</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                tmp = stack.pop()</span><br><span class="line">                print(tmp.value)</span><br><span class="line">                tmp = tmp.rtree</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fei_hout</span><span class="params">(self,head)</span>:</span></span><br><span class="line">        stack_one = []</span><br><span class="line">        stack_two = []</span><br><span class="line">        tmp = head</span><br><span class="line">        <span class="keyword">if</span> tmp:</span><br><span class="line">            stack_one.append(tmp)</span><br><span class="line">            <span class="keyword">while</span> stack_one:</span><br><span class="line">                tmp = stack_one.pop()</span><br><span class="line">                stack_two.append(tmp)</span><br><span class="line">                <span class="keyword">if</span> tmp.ltree:</span><br><span class="line">                    stack_one.append(tmp.ltree)</span><br><span class="line">                <span class="keyword">if</span> tmp.rtree:</span><br><span class="line">                    stack_one.append(tmp.rtree)</span><br><span class="line">            <span class="keyword">while</span> stack_two:</span><br><span class="line">                tmp = stack_two.pop()</span><br><span class="line">                print(tmp.value)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    a = tree(<span class="number">1</span>)</span><br><span class="line">    b = tree(<span class="number">2</span>)</span><br><span class="line">    c = tree(<span class="number">3</span>)</span><br><span class="line">    d = tree(<span class="number">4</span>)</span><br><span class="line">    e = tree(<span class="number">5</span>)</span><br><span class="line">    f = tree(<span class="number">6</span>)</span><br><span class="line">    g = tree(<span class="number">7</span>)</span><br><span class="line">    a.ltree = b</span><br><span class="line">    a.rtree = c</span><br><span class="line">    b.ltree = d</span><br><span class="line">    b.rtree = e</span><br><span class="line">    c.ltree = f</span><br><span class="line">    c.rtree = g</span><br><span class="line">    <span class="comment">#a.qout(a)</span></span><br><span class="line">    <span class="comment">#a.fei_qout(a)</span></span><br><span class="line">    <span class="comment">#a.mout(a)</span></span><br><span class="line">    <span class="comment">#a.fei_mout(a)</span></span><br><span class="line">    a.hout(a)</span><br><span class="line">    print()</span><br><span class="line">    a.fei_hout(a)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/06/基本数据结构与算法-3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-基本数据结构与算法-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1126,117 +1211,6 @@
 
 
   
-    <article id="post-Git与Github知识点-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/19/Git与Github知识点-1/">Git与Github知识点(一)</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/19/Git与Github知识点-1/" class="archive-article-date">
-  	<time datetime="2018-03-19T06:27:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1、    Git help(查询git的帮助文档)——git help –a(所有可用的git帮助将提供)<br>2、    Git config:</p>
-<ul>
-<li>git config –global user.name xxx(设置Git全局名称)</li>
-<li>git config –global user.email xxx(设置Git全局邮件)</li>
-<li>git config –unset –global user.name(删除Git全局名字)</li>
-<li>git config –list(查看配置)</li>
-</ul>
-<p>3、    Git init(初始化Git仓库)<br>4、    Git status(查看Git仓库状态，是否有文件未跟踪或者提交)<br>5、    Git add XXX/.(将修改文件/目录所有文件从工作区添加到缓存区)<br>6、    Git commit:</p>
-<ul>
-<li>git commit –m ”这里填写调教信息”(将修改从缓存区提交到分支里)</li>
-</ul>
-<p>7、    Git diff(在工作树和索引或树之间显示更改，索引和树之间的更改，两棵树之间的更改，两个Blob对象之间的更改或磁盘上两个文件之间的更改)<br>8、    Git mv(更改git中缓存区的名字，同时会作用于工作区的文件)mv(更改工作区中的名字)<br>9、    Git rm(删除git中缓存区的文件，同时会作用于工作区的文件)rm(删除工作区的文件)</p>
-<ul>
-<li>git rm –cached(使用此选项可以取消仅从索引中删除路径。工作树文件，无论是否修改，都将被保留。)</li>
-</ul>
-<p>10、Git revert(恢复一些现有的提交)</p>
-<ul>
-<li>git revert HEAD~3(Head最先指向0，恢复HEAD中最后第四次提交指定的更改，并使用恢复的更改创建一个新的提交。)</li>
-<li>git revert HEAD^ 相当于HEAD~1</li>
-</ul>
-<p>11、Git reset(将当前HEAD重置为指定状态)</p>
-<ul>
-<li>git reset –soft HEAD~X/版本号(软重置，对工作区和缓存区均不影响，仅影响分支)</li>
-<li>git reset –mixed HEAD~X/版本号(不影响工作区，影响缓存区以及分支)</li>
-<li>git reset –hard HEAD~X/版本号(影响工作区、缓存区、分支)</li>
-</ul>
-<p>12、Git log(打印日志)</p>
-<ul>
-<li>git log –oneline(逐行读取日志信息)</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Github</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git与Github知识点</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/19/Git与Github知识点-1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1386,11 +1360,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">后端开发</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1403,6 +1373,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">美团</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">后端开发</a>
               </li>
             
             <div class="clearfix"></div>

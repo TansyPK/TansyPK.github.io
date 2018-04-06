@@ -140,6 +140,117 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Git与Github知识点-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/19/Git与Github知识点-1/">Git与Github知识点(一)</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/19/Git与Github知识点-1/" class="archive-article-date">
+  	<time datetime="2018-03-19T06:27:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1、    Git help(查询git的帮助文档)——git help –a(所有可用的git帮助将提供)<br>2、    Git config:</p>
+<ul>
+<li>git config –global user.name xxx(设置Git全局名称)</li>
+<li>git config –global user.email xxx(设置Git全局邮件)</li>
+<li>git config –unset –global user.name(删除Git全局名字)</li>
+<li>git config –list(查看配置)</li>
+</ul>
+<p>3、    Git init(初始化Git仓库)<br>4、    Git status(查看Git仓库状态，是否有文件未跟踪或者提交)<br>5、    Git add XXX/.(将修改文件/目录所有文件从工作区添加到缓存区)<br>6、    Git commit:</p>
+<ul>
+<li>git commit –m ”这里填写调教信息”(将修改从缓存区提交到分支里)</li>
+</ul>
+<p>7、    Git diff(在工作树和索引或树之间显示更改，索引和树之间的更改，两棵树之间的更改，两个Blob对象之间的更改或磁盘上两个文件之间的更改)<br>8、    Git mv(更改git中缓存区的名字，同时会作用于工作区的文件)mv(更改工作区中的名字)<br>9、    Git rm(删除git中缓存区的文件，同时会作用于工作区的文件)rm(删除工作区的文件)</p>
+<ul>
+<li>git rm –cached(使用此选项可以取消仅从索引中删除路径。工作树文件，无论是否修改，都将被保留。)</li>
+</ul>
+<p>10、Git revert(恢复一些现有的提交)</p>
+<ul>
+<li>git revert HEAD~3(Head最先指向0，恢复HEAD中最后第四次提交指定的更改，并使用恢复的更改创建一个新的提交。)</li>
+<li>git revert HEAD^ 相当于HEAD~1</li>
+</ul>
+<p>11、Git reset(将当前HEAD重置为指定状态)</p>
+<ul>
+<li>git reset –soft HEAD~X/版本号(软重置，对工作区和缓存区均不影响，仅影响分支)</li>
+<li>git reset –mixed HEAD~X/版本号(不影响工作区，影响缓存区以及分支)</li>
+<li>git reset –hard HEAD~X/版本号(影响工作区、缓存区、分支)</li>
+</ul>
+<p>12、Git log(打印日志)</p>
+<ul>
+<li>git log –oneline(逐行读取日志信息)</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Github</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git与Github知识点</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/19/Git与Github知识点-1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Http浅认识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1273,11 +1384,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">后端开发</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1290,6 +1397,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">美团</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">后端开发</a>
               </li>
             
             <div class="clearfix"></div>
