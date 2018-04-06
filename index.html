@@ -140,6 +140,99 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-基本数据结构与算法-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/06/基本数据结构与算法-2/">基本数据结构与算法-2</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/06/基本数据结构与算法-2/" class="archive-article-date">
+  	<time datetime="2018-04-06T03:04:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>给定一个数组arr，和一个数num，请把小于等于num的数放在数 组的左边，大于num的数放在数组的右边。<br>要求额外空间复杂度O(1)，时间复杂度O(N)</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding : utf-8 -*-</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">smallHelan</span><span class="params">(array,num)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    小荷兰国旗问题</span></span><br><span class="line"><span class="string">    时间复杂度O(N)</span></span><br><span class="line"><span class="string">    额外空间复杂度O(1)</span></span><br><span class="line"><span class="string">    :param array:</span></span><br><span class="line"><span class="string">    :param num:</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    left = <span class="number">-1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(array)):</span><br><span class="line">        <span class="keyword">if</span> array[i]&lt;=num:</span><br><span class="line">            array[left+<span class="number">1</span>],array[i] = array[i],array[left+<span class="number">1</span>]</span><br><span class="line">            left+=<span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> array</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    a = [<span class="number">1</span>,<span class="number">22</span>,<span class="number">33</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">3</span>]</span><br><span class="line">    print(smallHelan(a,<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
+<ol>
+<li>给定一个数组arr，和一个数num，请把小于num的数放在数组的 左边，等于num的数放在数组的中间，大于num的数放在数组的 右边。(荷兰国旗问题)<br>要求额外空间复杂度O(1)，时间复杂度O(N)</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Helan</span><span class="params">(array,num)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    荷兰国旗问题</span></span><br><span class="line"><span class="string">    时间复杂度O(N)</span></span><br><span class="line"><span class="string">    额外空间复杂度O(1)</span></span><br><span class="line"><span class="string">    :param array:数组</span></span><br><span class="line"><span class="string">    :param num: 整型</span></span><br><span class="line"><span class="string">    :return: 数组</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="keyword">if</span> len(array)&lt;<span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    p1 = <span class="number">-1</span></span><br><span class="line">    p2 = len(array)</span><br><span class="line">    index = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> index&lt;p2:</span><br><span class="line">        print(index)</span><br><span class="line">        <span class="keyword">if</span> array[index]&lt;num:</span><br><span class="line">            array[p1+<span class="number">1</span>],array[index] = array[index],array[p1+<span class="number">1</span>]</span><br><span class="line">            p1+=<span class="number">1</span></span><br><span class="line">            index+=<span class="number">1</span></span><br><span class="line">        <span class="keyword">elif</span> array[index]&gt;num:</span><br><span class="line">            array[p2<span class="number">-1</span>],array[index] = array[index],array[p2<span class="number">-1</span>]</span><br><span class="line">            p2-=<span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            index+=<span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> array</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    a = [<span class="number">1</span>,<span class="number">3</span>,<span class="number">22</span>,<span class="number">4</span>,<span class="number">66</span>,<span class="number">42</span>,<span class="number">0</span>]</span><br><span class="line">    print(Helan(a,<span class="number">3</span>))</span><br></pre></td></tr></table></figure>
+<ol>
+<li>堆结构及堆排序</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">swap</span><span class="params">(array,l,r)</span>:</span></span><br><span class="line">    array[l],array[r] = array[r],array[l]</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">heapInsert</span><span class="params">(array,index)</span>:</span></span><br><span class="line">    <span class="keyword">while</span> array[index]&gt;array[abs(index<span class="number">-1</span>)//<span class="number">2</span>]:</span><br><span class="line">        swap(array,index,abs(index<span class="number">-1</span>)//<span class="number">2</span>)</span><br><span class="line">        index = abs(index<span class="number">-1</span>)//<span class="number">2</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">heapif</span><span class="params">(array,index,size)</span>:</span></span><br><span class="line">    left = index*<span class="number">2</span>+<span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> left&lt;size:</span><br><span class="line">        <span class="keyword">if</span> left+<span class="number">1</span>&lt;size <span class="keyword">and</span> array[left+<span class="number">1</span>]&gt;array[left]:</span><br><span class="line">            largest = left+<span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            largest = left</span><br><span class="line">        <span class="keyword">if</span> array[largest]&gt;array[index]:</span><br><span class="line">            largest = largest</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            largest = index</span><br><span class="line">        <span class="keyword">if</span> largest == index:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        swap(array,largest,index)</span><br><span class="line">        index = largest</span><br><span class="line">        left = index*<span class="number">2</span>+<span class="number">1</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">heapsort</span><span class="params">(array)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    堆排序</span></span><br><span class="line"><span class="string">    时间复杂度O(N*logN)</span></span><br><span class="line"><span class="string">    空间复杂度O(1)</span></span><br><span class="line"><span class="string">    :param array:数组</span></span><br><span class="line"><span class="string">    :return:数组</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="keyword">if</span> len(array)&lt;<span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span> array</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(array)):</span><br><span class="line">        heapInsert(array,i)</span><br><span class="line">    heapsize = len(array)</span><br><span class="line">    <span class="keyword">while</span> heapsize&gt;<span class="number">1</span>:</span><br><span class="line">        swap(array,<span class="number">0</span>,heapsize<span class="number">-1</span>)</span><br><span class="line">        heapsize -= <span class="number">1</span></span><br><span class="line">        heapif(array,<span class="number">0</span>,heapsize)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    a = [<span class="number">2</span>,<span class="number">3</span>,<span class="number">124</span>,<span class="number">242</span>,<span class="number">32</span>,<span class="number">0</span>]</span><br><span class="line">    heapsort(a)</span><br><span class="line">    print(a)</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/06/基本数据结构与算法-2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-基本数据结构与算法-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1134,100 +1227,6 @@
 
 
   
-    <article id="post-Http浅认识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/19/Http浅认识/">Http浅认识(一)</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/19/Http浅认识/" class="archive-article-date">
-  	<time datetime="2018-03-19T06:23:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="TCP-IP一共有四层"><a href="#TCP-IP一共有四层" class="headerlink" title="TCP/IP一共有四层"></a>TCP/IP一共有四层</h1><h2 id="第一层链路层："><a href="#第一层链路层：" class="headerlink" title="第一层链路层："></a>第一层链路层：</h2><p>链路层负责处理硬件部分，包括控制操作系统、硬件设备驱动、NIC（网卡、网络适配器）、光纤、连接器等硬件。</p>
-<h2 id="第二层是网络层："><a href="#第二层是网络层：" class="headerlink" title="第二层是网络层："></a>第二层是网络层：</h2><p>网络层用来处理在网络上传送的数据包，数据包是网络传输的最小单位。该层运用ARP分析IP地址得到Mac地址后选择传输路线。</p>
-<h2 id="第三层是传输层："><a href="#第三层是传输层：" class="headerlink" title="第三层是传输层："></a>第三层是传输层：</h2><p>传输层则由TCP/UDP对数据进行拆包合包工作，负责应用程序与应用程序间的通信。</p>
-<h2 id="第四层是应用层："><a href="#第四层是应用层：" class="headerlink" title="第四层是应用层："></a>第四层是应用层：</h2><p>这里其中包括FTP文件传输，DNS域名解析，HTTP协议。</p>
-<ul>
-<li>DNS负责解析域名，从而得到IP地址，交由ARP进行操作。</li>
-<li>HTTP负责web服务器与web端（浏览器）之间的通信。</li>
-</ul>
-<h2 id="对于在浏览器上浏览信息来说，我们通过以下阶段："><a href="#对于在浏览器上浏览信息来说，我们通过以下阶段：" class="headerlink" title="对于在浏览器上浏览信息来说，我们通过以下阶段："></a>对于在浏览器上浏览信息来说，我们通过以下阶段：</h2><ul>
-<li>DNS域名解析，得到域名对应的IP地址</li>
-<li>HTTP协议生成针对目标Web服务器的HTTP请求报文</li>
-<li>TCP协议对报文进行拆包</li>
-<li>IP协议对报文进行中转传输，其中ARP根据IP地址进行寻找路线</li>
-<li>TCP协议对报文进行合包</li>
-<li>HTTP协议对web服务器请求的内容进行处理</li>
-<li>处理结果也同样利用TCP/IP进行回传</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络编程</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Http</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/19/Http浅认识/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1353,11 +1352,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python知识点随记</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python知识点随记</a>
               </li>
              
               <li class="article-tag-list-item">
