@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018 | KoiCarrot</title>
+  <title>Scrapy-redis简易分布式爬虫 | KoiCarrot</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Python Coder Zone">
-<meta name="keywords" content="python,flask,django,mysql,mongodb,java,html,css,nginx,tcp&#x2F;ip,http,gunicorn">
-<meta property="og:type" content="website">
-<meta property="og:title" content="KoiCarrot">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+  <meta name="description" content="知识点 scrapy scrapy-redis redis 正则表达式 分布式爬虫策略分布式爬虫策略我们这里使用这么一种策略，Slaver端从Master端拿任务（Request/url/ID）进行数据抓取，在抓取数据的同时也生成新任务，并将任务抛给Master我们的服务器将作为Master端 个人PC机作为Slave端Setting.py使用Scrapy-redis分布式框架之前，我们需要对其进">
+<meta name="keywords" content="scrapy-redis,爬虫,分布式,redis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Scrapy-redis简易分布式爬虫">
+<meta property="og:url" content="http://yoursite.com/2018/04/26/Scrapy-redis简易分布式爬虫/index.html">
 <meta property="og:site_name" content="KoiCarrot">
-<meta property="og:description" content="Python Coder Zone">
+<meta property="og:description" content="知识点 scrapy scrapy-redis redis 正则表达式 分布式爬虫策略分布式爬虫策略我们这里使用这么一种策略，Slaver端从Master端拿任务（Request/url/ID）进行数据抓取，在抓取数据的同时也生成新任务，并将任务抛给Master我们的服务器将作为Master端 个人PC机作为Slave端Setting.py使用Scrapy-redis分布式框架之前，我们需要对其进">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-04-26T03:29:24.617Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="KoiCarrot">
-<meta name="twitter:description" content="Python Coder Zone">
+<meta name="twitter:title" content="Scrapy-redis简易分布式爬虫">
+<meta name="twitter:description" content="知识点 scrapy scrapy-redis redis 正则表达式 分布式爬虫策略分布式爬虫策略我们这里使用这么一种策略，Slaver端从Master端拿任务（Request/url/ID）进行数据抓取，在抓取数据的同时也生成新任务，并将任务抛给Master我们的服务器将作为Master端 个人PC机作为Slave端Setting.py使用Scrapy-redis分布式框架之前，我们需要对其进">
   
     <link rel="alternative" href="/atom.xml" title="KoiCarrot" type="application/atom+xml">
   
@@ -148,36 +149,52 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Scrapy-redis简易分布式爬虫" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/26/Scrapy-redis简易分布式爬虫/" class="archive-article-date">
-  	<time datetime="2018-04-26T02:47:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-26</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/26/Scrapy-redis简易分布式爬虫/">Scrapy-redis简易分布式爬虫</a>
+    <h1 class="article-title" itemprop="name">
+      Scrapy-redis简易分布式爬虫
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/04/26/Scrapy-redis简易分布式爬虫/" class="archive-article-date">
+  	<time datetime="2018-04-26T02:47:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h2><ul>
+<li>scrapy</li>
+<li>scrapy-redis</li>
+<li>redis</li>
+<li>正则表达式</li>
+<li>分布式爬虫策略<h2 id="分布式爬虫策略"><a href="#分布式爬虫策略" class="headerlink" title="分布式爬虫策略"></a>分布式爬虫策略</h2>我们这里使用这么一种策略，Slaver端从Master端拿任务（Request/url/ID）进行数据抓取，在抓取数据的同时也生成新任务，并将任务抛给Master<br>我们的服务器将作为Master端 个人PC机作为Slave端<h2 id="Setting-py"><a href="#Setting-py" class="headerlink" title="Setting.py"></a>Setting.py</h2>使用Scrapy-redis分布式框架之前，我们需要对其进行一些配置<br>下面是根据scrapy-redis中example_project配置进行修改得来，其中注释也很明确了<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Enables scheduling storing requests queue in redis.</span></span><br><span class="line">SPIDER_MODULES = [<span class="string">'scrapy_tv.spiders'</span>]</span><br><span class="line">NEWSPIDER_MODULE = <span class="string">'scrapy_tv.spiders'</span></span><br><span class="line"></span><br><span class="line">SCHEDULER = <span class="string">"scrapy_redis.scheduler.Scheduler"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Ensure all spiders share same duplicates filter through redis.</span></span><br><span class="line">DUPEFILTER_CLASS = <span class="string">"scrapy_redis.dupefilter.RFPDupeFilter"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Default requests serializer is pickle, but it can be changed to any module</span></span><br><span class="line"><span class="comment"># with loads and dumps functions. Note that pickle is not compatible between</span></span><br><span class="line"><span class="comment"># python versions.</span></span><br><span class="line"><span class="comment"># Caveat: In python 3.x, the serializer must return strings keys and support</span></span><br><span class="line"><span class="comment"># bytes as values. Because of this reason the json or msgpack module will not</span></span><br><span class="line"><span class="comment"># work by default. In python 2.x there is no such issue and you can use</span></span><br><span class="line"><span class="comment"># 'json' or 'msgpack' as serializers.</span></span><br><span class="line"><span class="comment">#SCHEDULER_SERIALIZER = "scrapy_redis.picklecompat"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Don't cleanup redis queues, allows to pause/resume crawls.</span></span><br><span class="line">SCHEDULER_PERSIST = <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Schedule requests using a priority queue. (default)</span></span><br><span class="line"><span class="comment">#SCHEDULER_QUEUE_CLASS = 'scrapy_redis.queue.PriorityQueue'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Alternative queues.</span></span><br><span class="line"><span class="comment">#SCHEDULER_QUEUE_CLASS = 'scrapy_redis.queue.FifoQueue'</span></span><br><span class="line"><span class="comment">#SCHEDULER_QUEUE_CLASS = 'scrapy_redis.queue.LifoQueue'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Max idle time to prevent the spider from being closed when distributed crawling.</span></span><br><span class="line"><span class="comment"># This only works if queue class is SpiderQueue or SpiderStack,</span></span><br><span class="line"><span class="comment"># and may also block the same time when your spider start at the first time (because the queue is empty).</span></span><br><span class="line"><span class="comment">#SCHEDULER_IDLE_BEFORE_CLOSE = 10</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Store scraped item in redis for post-processing.</span></span><br><span class="line">ITEM_PIPELINES = &#123;</span><br><span class="line">    <span class="string">'scrapy_redis.pipelines.RedisPipeline'</span>: <span class="number">300</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># The item pipeline serializes and stores the items in this redis key.</span></span><br><span class="line"><span class="comment">#REDIS_ITEMS_KEY = '%(spider)s:items'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The items serializer is by default ScrapyJSONEncoder. You can use any</span></span><br><span class="line"><span class="comment"># importable path to a callable object.</span></span><br><span class="line"><span class="comment">#REDIS_ITEMS_SERIALIZER = 'json.dumps'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Specify the host and port to use when connecting to Redis (optional).</span></span><br><span class="line"><span class="comment">#REDIS_HOST = 'localhost'</span></span><br><span class="line"><span class="comment">#REDIS_PORT = 6379</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Specify the full Redis URL for connecting (optional).</span></span><br><span class="line"><span class="comment"># If set, this takes precedence over the REDIS_HOST and REDIS_PORT settings.</span></span><br><span class="line">REDIS_URL = <span class="string">'redis://xxx:6379'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Custom redis client parameters (i.e.: socket timeout, etc.)</span></span><br><span class="line"><span class="comment">#REDIS_PARAMS  = &#123;&#125;</span></span><br><span class="line"><span class="comment"># Use custom redis client class.</span></span><br><span class="line"><span class="comment">#REDIS_PARAMS['redis_cls'] = 'myproject.RedisClient'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># If True, it uses redis' ``spop`` operation. This could be useful if you</span></span><br><span class="line"><span class="comment"># want to avoid duplicates in your start urls list. In this cases, urls must</span></span><br><span class="line"><span class="comment"># be added via ``sadd`` command or you will get a type error from redis.</span></span><br><span class="line"><span class="comment">#REDIS_START_URLS_AS_SET = False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Default start urls key for RedisSpider and RedisCrawlSpider.</span></span><br><span class="line"><span class="comment">#REDIS_START_URLS_KEY = '%(name)s:start_urls'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Use other encoding than utf-8 for redis.</span></span><br><span class="line"><span class="comment">#REDIS_ENCODING = 'latin1'</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>其中需要注意的是，由于这是slave端的配置，所以我们连接的是不是本地PC机的Redis，而是要连接服务器端的Redis，通过指定REDIS_URL = ‘redis://xxx:6379’配置来实现</p>
+<h2 id="RedisCrawlSpider"><a href="#RedisCrawlSpider" class="headerlink" title="RedisCrawlSpider"></a>RedisCrawlSpider</h2><p>我们的Spider将使用RedisCrawlSpider，其基本特质和CrawlSpider相差不多，主要是RedisCrawlSpider将从Redis中抽取url进行爬取，我们先来看看代码示例<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> scrapy_redis.spiders <span class="keyword">import</span> RedisCrawlSpider</span><br><span class="line"><span class="keyword">from</span> scrapy.spiders <span class="keyword">import</span> Rule</span><br><span class="line"><span class="keyword">from</span> scrapy.linkextractors <span class="keyword">import</span> LinkExtractor</span><br><span class="line"><span class="keyword">from</span> scrapy_tv.items <span class="keyword">import</span> ScrapyTvItem</span><br><span class="line"><span class="keyword">from</span> scrapy <span class="keyword">import</span> Selector</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">hanjuTV_spider</span><span class="params">(RedisCrawlSpider)</span>:</span></span><br><span class="line">    name = <span class="string">'hanjuTV_spider'</span></span><br><span class="line">    redis_key = <span class="string">'hanjuTV_spider:start_urls'</span></span><br><span class="line">    allowed_domains = [<span class="string">'hanju.cc'</span>]</span><br><span class="line">    rules = [</span><br><span class="line">        Rule(link_extractor=LinkExtractor(allow=<span class="string">'list_8_[1-9][0-9]?\.html'</span>),callback=<span class="string">'parse_func'</span>,follow=<span class="keyword">True</span>),</span><br><span class="line">    ]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_func</span><span class="params">(self,response)</span>:</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> response.xpath(<span class="string">'//*[@class="stab-con"]/dl/dd/li'</span>):</span><br><span class="line">            <span class="keyword">yield</span> &#123;</span><br><span class="line">			<span class="string">'name'</span>:<span class="string">'韩剧TV-'</span>+<span class="string">''</span>.join(i.xpath(<span class="string">'div[1]/span/a/b/text()'</span>).extract()),</span><br><span class="line">            <span class="string">'url'</span>:<span class="string">'http://www.hanju.cc'</span> + <span class="string">''</span>.join(i.xpath(<span class="string">'a/@href'</span>).extract())</span><br><span class="line">			&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这里爬去了韩剧TV网站的所有韩剧标题和链接，非常简易,其中需要注意的是redis_key替代了之前的start_url作为RedisCrawlSpider起始爬取链接,然后根据Rule中的规则跟踪所有链接传递回给Master的Redis，达到爬取全站的目的</p>
+<h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><p>Slave端大致结束后，我们就要实现Master端的分发任务<br>这里我们为了简单，模拟Master端爬去到有效链接存入Redis的过程，我们直接把有效来链接通过redis_seturl.py脚本压入Redis中<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># redis_seturl.py</span></span><br><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    rediscli = redis.StrictRedis()</span><br><span class="line">    rediscli.lpush(<span class="string">'hanjuTV_spider:start_urls'</span>,<span class="string">'http://www.hanju.cc/hanju/'</span>)</span><br><span class="line">    rediscli.lpush(<span class="string">'goudaiTV_spider:start_urls'</span>,<span class="string">'http://www.goudaitv.com/frim/index1.html'</span>)</span><br><span class="line">    rediscli.lpush(<span class="string">'goudaiTV_spider:start_urls'</span>, <span class="string">'http://www.goudaitv.com/frim/index2.html'</span>)</span><br><span class="line">    rediscli.lpush(<span class="string">'goudaiTV_spider:start_urls'</span>, <span class="string">'http://www.goudaitv.com/frim/index42.html'</span>)</span><br><span class="line">    rediscli.lpush(<span class="string">'goudaiTV_spider:start_urls'</span>, <span class="string">'http://www.goudaitv.com/frim/index44.html'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>其中在服务器端控制redis-cli中有许多坑，这里稍微说一下</p>
+<ul>
+<li>一定要确保redis-cli中save可以正常执行</li>
+<li>配置要redis的配置文件，清楚自己dump.rdb位置以及其对应权限是否可以写入</li>
+<li>压入的链接需要是lpush操作，不能直接set入，因为slave端实际上是从redis端中pop出url来进行爬取，并将爬去过的存入filter去重<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2>启动就很简单啦，只要把slave端的爬虫开启，就会进入监听等待，然后我们在服务器端执行redis_seturls.py文件把链接压入redis就可以啦，稍后你就会看到slave端在派取信息，并且服务器redis会多了items和filter这两个key，你可以通过process_item.py进行json格式输出并且查看，当然直接cat dump.rdb也可以看到结果。<h2 id="github源码地址"><a href="#github源码地址" class="headerlink" title="github源码地址"></a>github源码地址</h2><a href="https://github.com/KoiCarrot/scrapy_tv" target="_blank" rel="noopener">https://github.com/KoiCarrot/scrapy_tv</a></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -201,436 +218,105 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/04/26/Scrapy-redis简易分布式爬虫/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/20/剑指Offer-1/" class="archive-article-date">
-  	<time datetime="2018-04-20T14:10:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-20</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/04/20/剑指Offer-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">剑指Offer</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/20/剑指Offer-1/">剑指Offer</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">剑指Offer</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/06/基本数据结构与算法-3/" class="archive-article-date">
-  	<time datetime="2018-04-06T09:00:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/06/基本数据结构与算法-3/">基本数据结构与算法-(三)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/06/基本数据结构与算法-2/" class="archive-article-date">
-  	<time datetime="2018-04-06T03:04:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/06/基本数据结构与算法-2/">基本数据结构与算法-(二)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/05/基本数据结构与算法-1/" class="archive-article-date">
-  	<time datetime="2018-04-05T02:15:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/05/基本数据结构与算法-1/">基本数据结构与算法(一)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/05/知乎后端工程师面试/" class="archive-article-date">
-  	<time datetime="2018-04-05T01:02:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/05/知乎后端工程师面试/">知乎后端工程师面试</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">后端开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/23/美团笔试2017校招选择题/" class="archive-article-date">
-  	<time datetime="2018-03-23T02:52:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/23/美团笔试2017校招选择题/">美团笔试2017校招选择题</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">校招</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔试</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">美团</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/19/Django简易开发教程-3/" class="archive-article-date">
-  	<time datetime="2018-03-19T06:40:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/19/Django简易开发教程-3/">Django简易开发教程-3</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Django</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Django简易开发教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/19/Django简易开发教程-2/" class="archive-article-date">
-  	<time datetime="2018-03-19T06:39:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/19/Django简易开发教程-2/">Django简易开发教程-2</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Django</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Django简易开发教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/19/Django简易开发教程-1/" class="archive-article-date">
-  	<time datetime="2018-03-19T06:39:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/19/Django简易开发教程-1/">Django简易开发教程(一)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Django</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Django简易开发教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2018/page/2/">2</a><a class="page-number" href="/archives/2018/page/3/">3</a><a class="extend next" rel="next" href="/archives/2018/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -654,8 +340,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

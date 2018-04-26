@@ -150,6 +150,106 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Git与Github知识点-3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/19/Git与Github知识点-3/">Git与Github知识点(三)</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/19/Git与Github知识点-3/" class="archive-article-date">
+  	<time datetime="2018-03-19T06:27:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1、    git remote(列出已经存在的远程分支)</p>
+<ul>
+<li>git remote –v(列出详细信息，每一个名字后面列出其远程URL)</li>
+<li>git remote add origin 地址(origin是一个地址的短名，方便引用仓库地址，这个操作将连接远程仓库)</li>
+</ul>
+<p>2、    git push( 更新远程引用以及关联的对象)</p>
+<ul>
+<li>git push origin master(将本地的master分支推送到origin主机的master分支)</li>
+<li>git push –u origin master(如果当前分支与多个主机存在追踪关系，则可以使用-u选项制定一个默认主机，这样后面可以不加任何参数调用git push)</li>
+</ul>
+<p>3、    git clone xxx地址(把远程仓库clone下来)<br>4、    git fetch(将远程仓库代码更新)</p>
+<ul>
+<li>git fetch orgin dev(将origin主机中的dev分支的代码更新)<br>git fetch origin dev 然后 git checkout origin/dev中查看修改的代码<br>最后git merge –no-ff origin/dev完成合并是最好的，因为这样的版本控制很清晰</li>
+</ul>
+<p>5、    git pull(将远程仓库代码更新并合并到工作区)</p>
+<ul>
+<li>git pull origin dev(这个操作其实就是上面的操作的集合，不过merge为默认，所以不会写入版本控制信息)</li>
+</ul>
+<p>6、    git fork(将github上的优秀代码存入自己的仓库)<br>7、    git pull request(对fork下来的代码更新提交)</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Github</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git与Github知识点</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/19/Git与Github知识点-3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Git与Github知识点-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1133,116 +1233,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Python知识点随记-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/19/Python知识点随记-2/">Python知识点随记(二)</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/19/Python知识点随记-2/" class="archive-article-date">
-  	<time datetime="2018-03-19T02:16:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>编码</li>
-</ol>
-<ul>
-<li>ASCII编码为适应美国字符所产生的编码集，编码为一个字节(8个bit,11111111可以表示255个字符)</li>
-<li>GB2312编码则为适应中国所产生的编码集</li>
-<li>Unicode则为了统一各国所产生的编码集，编码一般为两个字节(16个bit)</li>
-<li>由于Unicode编码在空间上所需比ASCII多一倍，如果我们大多数只用到ASCII字符的话就会显得不划算，这时候就有UTF-8编码，由Unicode转换而来，可以根据字符自动增长缩短字节，节省空间.</li>
-<li>搞清楚了ASCII、Unicode和UTF-8的关系，我们就可以总结一下现在计算机系统通用的字符编码工作方式：<br>在计算机内存中，统一使用Unicode编码，当需要保存到硬盘或者需要传输的时候，就转换为UTF-8编码</li>
-<li>Python字符串统一使用unicode编码</li>
-</ul>
-<ol>
-<li>函数参数*args,**kw</li>
-</ol>
-<ul>
-<li>*args作为参数说明函数可以接受任意位置参数，通常*args只能出现在位置参数后一个</li>
-<li><strong>kw作为参数说明函数可以接受任意的关键字参数，</strong>kw位置只能在最后.</li>
-</ul>
-<ol>
-<li>Def(<em>args,block)或者def(A, </em>,block)这样的话block就被设置成了强制关键字参数，block必须传入关键字参数，不然会提示异常.</li>
-<li>函数返回多个值时返回的是元组</li>
-<li><p>如果你想让某个匿名函数在定义时就捕获到值，可以将那个参数值定义成默认参数即可,像这样:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">10</span></span><br><span class="line">a = <span class="keyword">lambda</span> y, x=x: x + y</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>通常如果我们有一个类但是只有一个方法，我们觉得它有点多余的话，我们可以把它转换成一个函数，具体的做法就是闭包，所谓闭包就是函数返回函数，例如:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">urltemplate</span><span class="params">(template)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">opener</span><span class="params">(**kwargs)</span>:</span></span><br><span class="line">		<span class="keyword">return</span> urlopen(template.format_map(kwargs))</span><br><span class="line">	<span class="keyword">return</span> opener</span><br><span class="line"><span class="comment"># Example use</span></span><br><span class="line">yahoo = urltemplate(<span class="string">'http://finance.yahoo.com/d/quotes.csv?s=&#123;names&#125;&amp;f=&#123;fields&#125;'</span>)</span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> yahoo(names=<span class="string">'IBM,AAPL,FB'</span>, fields=<span class="string">'sl1c1v'</span>):</span><br><span class="line">    print(line.decode(<span class="string">'utf-8'</span>))</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>回调函数的例子</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">apply_async</span><span class="params">(func, args, *, callback)</span>:</span></span><br><span class="line">    <span class="comment"># Compute the result</span></span><br><span class="line">    	result = func(*args)</span><br><span class="line"></span><br><span class="line">   	<span class="comment"># Invoke the callback with the result</span></span><br><span class="line">    	callback(result)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">print_result</span><span class="params">(result)</span>:</span></span><br><span class="line"><span class="meta">... </span>    print(<span class="string">'Got:'</span>, result)</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x, y)</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="keyword">return</span> x + y</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>apply_async(add, (<span class="number">2</span>, <span class="number">3</span>), callback=print_result)</span><br><span class="line">Got: <span class="number">5</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>apply_async(add, (<span class="string">'hello'</span>, <span class="string">'world'</span>), callback=print_result)</span><br><span class="line">Got: helloworld</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>内联回掉函数：运用yield和装饰器对回调函数进行封装.具体参考<br><a href="http://python3-cookbook.readthedocs.io/zh_CN/latest/c07/p11_inline_callback_functions.html" target="_blank" rel="noopener">http://python3-cookbook.readthedocs.io/zh_CN/latest/c07/p11_inline_callback_functions.html</a></p>
-</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python知识点随记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/19/Python知识点随记-2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1360,6 +1350,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python知识点随记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
               </li>
              
@@ -1368,15 +1362,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Python进阶用法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python知识点随记</a>
+                <a href="javascript:void(0)" class="js-tag color3">scrapy-redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Python进阶用法</a>
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1400,14 +1406,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">后端开发</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">校招</a>
               </li>
              
@@ -1417,6 +1415,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">美团</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">后端开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
             
             <div class="clearfix"></div>
