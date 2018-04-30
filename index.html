@@ -150,6 +150,108 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Scrapy-Redis-Flask-Elasticsearch打造简易搜索引擎" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/30/Scrapy-Redis-Flask-Elasticsearch打造简易搜索引擎/">Scrapy-Redis+Flask+Elasticsearch打造简易搜索引擎</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/30/Scrapy-Redis-Flask-Elasticsearch打造简易搜索引擎/" class="archive-article-date">
+  	<time datetime="2018-04-30T05:34:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这次我们把上次Scarpy-redis简易分布式爬虫所爬去的信息进行整合，并搭配Flask和elasticsearch打造一个简易的搜索引擎</p>
+<h2 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h2><ul>
+<li>Scrapy-Redis简易分布式爬虫(可以参考我的上一篇博文)<br>传送门:<a href="http://koicarrot.com/2018/04/26/Scrapy-redis简易分布式爬虫/" target="_blank" rel="noopener">http://koicarrot.com/2018/04/26/Scrapy-redis简易分布式爬虫/</a></li>
+<li>Flask</li>
+<li>ElasticSearch<h2 id="Flask前端项目架构"><a href="#Flask前端项目架构" class="headerlink" title="Flask前端项目架构"></a>Flask前端项目架构</h2><img src="https://raw.githubusercontent.com/KoiCarrot/Github_photos/master/YibuJY_product_dir.jpg" alt="Flask_photo_one"><br>这里可以看到一个比较通用的Flask项目架构，用来作为我们网站建设已经足够了，具体前端逻辑实现大家可以做成自己喜欢的.<h2 id="Views-py的主要逻辑"><a href="#Views-py的主要逻辑" class="headerlink" title="Views.py的主要逻辑"></a>Views.py的主要逻辑</h2>Flask中的主要逻辑集中在Views.py里，我们需要两个界面，一个是搜索界面，一个是结果界面，因此我们定义两个视图函数.<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> render_template,redirect,url_for</span><br><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> main</span><br><span class="line"><span class="keyword">from</span> .forms <span class="keyword">import</span> SearchForm</span><br><span class="line"><span class="keyword">import</span> elasticsearch</span><br><span class="line">es = elasticsearch.Elasticsearch()</span><br><span class="line"></span><br><span class="line"><span class="meta">@main.route('/',methods =['GET','POST'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">()</span>:</span></span><br><span class="line">    form = SearchForm()</span><br><span class="line">    <span class="keyword">if</span> form.validate_on_submit():</span><br><span class="line">        content = form.content.data</span><br><span class="line">        <span class="keyword">return</span> redirect(url_for(<span class="string">'main.page'</span>,content = content))</span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">'index_templates/index.html'</span>,form=form)</span><br><span class="line"></span><br><span class="line"><span class="meta">@main.route('/search/&lt;content&gt;',methods = ['GET','POST'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">page</span><span class="params">(content)</span>:</span></span><br><span class="line">    res = es.search(index=<span class="string">'scrapy_tv'</span>, doc_type=<span class="string">'text-type'</span>,</span><br><span class="line">                    body=&#123;<span class="string">"query"</span>: &#123;<span class="string">"match"</span>: &#123;</span><br><span class="line">                        <span class="string">"name"</span>: content</span><br><span class="line">                    &#125;&#125;&#125;)</span><br><span class="line">    post = res[<span class="string">'hits'</span>][<span class="string">'hits'</span>]</span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">'page_templates/index.html'</span>,post = post)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>现在可以先忽略ElasticSearch部分，这里因为个人习惯用了蓝图，这里实际上就是第一个函数Form表单把接收到的搜索主体传给Page视图函数进行查询并展现出来，非常得简单.</p>
+<h2 id="ElasticSearch"><a href="#ElasticSearch" class="headerlink" title="ElasticSearch"></a>ElasticSearch</h2><p>我们先来看看百科的介绍：</p>
+<blockquote>
+<blockquote>
+<p>ElasticSearch是一个基于Lucene的搜索服务器。它提供了一个分布式多用户能力的全文搜索引擎，基于RESTful web接口。Elasticsearch是用Java开发的，并作为Apache许可条款下的开放源码发布，是当前流行的企业级搜索引擎。设计用于云计算中，能够达到实时搜索，稳定，可靠，快速，安装使用方便。<br>我们建立一个网站或应用程序，并要添加搜索功能，但是想要完成搜索工作的创建是非常困难的。我们希望搜索解决方案要运行速度快，我们希望能有一个零配置和一个完全免费的搜索模式，我们希望能够简单地使用JSON通过HTTP来索引数据，我们希望我们的搜索服务器始终可用，我们希望能够从一台开始并扩展到数百台，我们要实时搜索，我们要简单的多租户，我们希望建立一个云的解决方案。因此我们利用Elasticsearch来解决所有这些问题及可能出现的更多其它问题。</p>
+</blockquote>
+</blockquote>
+<p>因此ElasticSearch可以非常方便得实现全文搜索，我们只需要把数据存入ElasticSearch中进行查询即可，我们经过Scrapy-Redis已经得到我们的数据，我们现在需要把它存入ElaSticSearch中.<br>ElasticSearch安装-使用文档如下:<br><a href="http://www.elastic.co/guide/cn/elasticsearch/guide/current/index.html" target="_blank" rel="noopener">http://www.elastic.co/guide/cn/elasticsearch/guide/current/index.html</a></p>
+<h2 id="pyelasticsearch"><a href="#pyelasticsearch" class="headerlink" title="pyelasticsearch"></a>pyelasticsearch</h2><p>为了讲Redis中的数据存入ElasticSearch中，我们使用pyelasticsearch封装好的方法进行插入存储.具体示例如下:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> elasticsearch</span><br><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    rediscli = redis.StrictRedis(host=<span class="string">'127.0.0.1'</span>,port=<span class="number">6379</span>,db=<span class="number">0</span>)</span><br><span class="line">    es = elasticsearch.Elasticsearch([<span class="string">'localhost:9200'</span>])</span><br><span class="line">    <span class="keyword">if</span> es.indices.exists(<span class="string">'scrapy_tv'</span>) <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">True</span>:</span><br><span class="line">        es.indices.create(<span class="string">'scrapy_tv'</span>)</span><br><span class="line">    <span class="keyword">while</span> rediscli.exists(<span class="string">"hanjuTV_spider:items"</span>):</span><br><span class="line">        source,data = rediscli.blpop([<span class="string">"hanjuTV_spider:items"</span>])</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">print</span> (es.index(index=<span class="string">'scrapy_tv'</span>,doc_type=<span class="string">'text-type'</span>,body=data,refresh = <span class="keyword">True</span>))</span><br><span class="line">        <span class="keyword">except</span> Exception:</span><br><span class="line">            <span class="keyword">print</span> (<span class="string">"gg"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure></p>
+<p>由于数据量小，我采用逐行读取写入的方式进行，如果数据量巨大的话建议进行批量处理</p>
+<h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><p>接下来我们要了解在Pyelasticsearch中封装好的查询search方法，方法使用说明如下<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">search</span><span class="params">(self, index=None, doc_type=None, body=None, params=None)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Execute a search query and get back search hits that match the query.</span></span><br><span class="line"><span class="string">    `&lt;http://www.elastic.co/guide/en/elasticsearch/reference/current/search-search.html&gt;`_</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    :arg index: A comma-separated list of index names to search; use `_all`</span></span><br><span class="line"><span class="string">        or empty string to perform the operation on all indices</span></span><br><span class="line"><span class="string">    :arg doc_type: A comma-separated list of document types to search; leave</span></span><br><span class="line"><span class="string">        empty to perform the operation on all types</span></span><br><span class="line"><span class="string">    :arg body: The search definition using the Query DSL</span></span><br><span class="line"><span class="string">    :arg _source: True or false to return the _source field or not, or a</span></span><br><span class="line"><span class="string">        list of fields to return</span></span><br><span class="line"><span class="string">    :arg _source_exclude: A list of fields to exclude from the returned</span></span><br><span class="line"><span class="string">        _source field</span></span><br><span class="line"><span class="string">    :arg _source_include: A list of fields to extract and return from the</span></span><br><span class="line"><span class="string">        _source field</span></span><br><span class="line"><span class="string">    :arg allow_no_indices: Whether to ignore if a wildcard indices</span></span><br><span class="line"><span class="string">        expression resolves into no concrete indices. (This includes `_all`</span></span><br><span class="line"><span class="string">        string or when no indices have been specified)</span></span><br><span class="line"><span class="string">    :arg analyze_wildcard: Specify whether wildcard and prefix queries</span></span><br><span class="line"><span class="string">        should be analyzed (default: false)</span></span><br><span class="line"><span class="string">    :arg analyzer: The analyzer to use for the query string</span></span><br><span class="line"><span class="string">    :arg batched_reduce_size: The number of shard results that should be</span></span><br><span class="line"><span class="string">        reduced at once on the coordinating node. This value should be used</span></span><br><span class="line"><span class="string">        as a protection mechanism to reduce the memory overhead per search</span></span><br><span class="line"><span class="string">        request if the potential number of shards in the request can be</span></span><br><span class="line"><span class="string">        large., default 512</span></span><br><span class="line"><span class="string">    :arg default_operator: The default operator for query string query (AND</span></span><br><span class="line"><span class="string">        or OR), default 'OR', valid choices are: 'AND', 'OR'</span></span><br><span class="line"><span class="string">    :arg df: The field to use as default where no field prefix is given in</span></span><br><span class="line"><span class="string">        the query string</span></span><br><span class="line"><span class="string">    :arg docvalue_fields: A comma-separated list of fields to return as the</span></span><br><span class="line"><span class="string">        docvalue representation of a field for each hit</span></span><br><span class="line"><span class="string">    :arg expand_wildcards: Whether to expand wildcard expression to concrete</span></span><br><span class="line"><span class="string">        indices that are open, closed or both., default 'open', valid</span></span><br><span class="line"><span class="string">        choices are: 'open', 'closed', 'none', 'all'</span></span><br><span class="line"><span class="string">    :arg explain: Specify whether to return detailed information about score</span></span><br><span class="line"><span class="string">        computation as part of a hit</span></span><br><span class="line"><span class="string">    :arg from\\_: Starting offset (default: 0)</span></span><br><span class="line"><span class="string">    :arg ignore_unavailable: Whether specified concrete indices should be</span></span><br><span class="line"><span class="string">        ignored when unavailable (missing or closed)</span></span><br><span class="line"><span class="string">    :arg lenient: Specify whether format-based query failures (such as</span></span><br><span class="line"><span class="string">        providing text to a numeric field) should be ignored</span></span><br><span class="line"><span class="string">    :arg max_concurrent_shard_requests: The number of concurrent shard</span></span><br><span class="line"><span class="string">        requests this search executes concurrently. This value should be</span></span><br><span class="line"><span class="string">        used to limit the impact of the search on the cluster in order to</span></span><br><span class="line"><span class="string">        limit the number of concurrent shard requests, default 'The default</span></span><br><span class="line"><span class="string">        grows with the number of nodes in the cluster but is at most 256.'</span></span><br><span class="line"><span class="string">    :arg pre_filter_shard_size: A threshold that enforces a pre-filter</span></span><br><span class="line"><span class="string">        roundtrip to prefilter search shards based on query rewriting if</span></span><br><span class="line"><span class="string">        the number of shards the search request expands to exceeds the</span></span><br><span class="line"><span class="string">        threshold. This filter roundtrip can limit the number of shards</span></span><br><span class="line"><span class="string">        significantly if for instance a shard can not match any documents</span></span><br><span class="line"><span class="string">        based on it's rewrite method ie. if date filters are mandatory to</span></span><br><span class="line"><span class="string">        match but the shard bounds and the query are disjoint., default 128</span></span><br><span class="line"><span class="string">    :arg preference: Specify the node or shard the operation should be</span></span><br><span class="line"><span class="string">        performed on (default: random)</span></span><br><span class="line"><span class="string">    :arg q: Query in the Lucene query string syntax</span></span><br><span class="line"><span class="string">    :arg request_cache: Specify if request cache should be used for this</span></span><br><span class="line"><span class="string">        request or not, defaults to index level setting</span></span><br><span class="line"><span class="string">    :arg routing: A comma-separated list of specific routing values</span></span><br><span class="line"><span class="string">    :arg scroll: Specify how long a consistent view of the index should be</span></span><br><span class="line"><span class="string">        maintained for scrolled search</span></span><br><span class="line"><span class="string">    :arg search_type: Search operation type, valid choices are:</span></span><br><span class="line"><span class="string">        'query_then_fetch', 'dfs_query_then_fetch'</span></span><br><span class="line"><span class="string">    :arg size: Number of hits to return (default: 10)</span></span><br><span class="line"><span class="string">    :arg sort: A comma-separated list of &lt;field&gt;:&lt;direction&gt; pairs</span></span><br><span class="line"><span class="string">    :arg stats: Specific 'tag' of the request for logging and statistical</span></span><br><span class="line"><span class="string">        purposes</span></span><br><span class="line"><span class="string">    :arg stored_fields: A comma-separated list of stored fields to return as</span></span><br><span class="line"><span class="string">        part of a hit</span></span><br><span class="line"><span class="string">    :arg suggest_field: Specify which field to use for suggestions</span></span><br><span class="line"><span class="string">    :arg suggest_mode: Specify suggest mode, default 'missing', valid</span></span><br><span class="line"><span class="string">        choices are: 'missing', 'popular', 'always'</span></span><br><span class="line"><span class="string">    :arg suggest_size: How many suggestions to return in response</span></span><br><span class="line"><span class="string">    :arg suggest_text: The source text for which the suggestions should be</span></span><br><span class="line"><span class="string">        returned</span></span><br><span class="line"><span class="string">    :arg terminate_after: The maximum number of documents to collect for</span></span><br><span class="line"><span class="string">        each shard, upon reaching which the query execution will terminate</span></span><br><span class="line"><span class="string">        early.</span></span><br><span class="line"><span class="string">    :arg timeout: Explicit operation timeout</span></span><br><span class="line"><span class="string">    :arg track_scores: Whether to calculate and return scores even if they</span></span><br><span class="line"><span class="string">        are not used for sorting</span></span><br><span class="line"><span class="string">    :arg track_total_hits: Indicate if the number of documents that match</span></span><br><span class="line"><span class="string">        the query should be tracked</span></span><br><span class="line"><span class="string">    :arg typed_keys: Specify whether aggregation and suggester names should</span></span><br><span class="line"><span class="string">        be prefixed by their respective types in the response</span></span><br><span class="line"><span class="string">    :arg version: Specify whether to return document version as part of a</span></span><br><span class="line"><span class="string">        hit</span></span><br><span class="line"><span class="string">    """</span></span><br></pre></td></tr></table></figure></p>
+<p>看起来很长 其实用法很简单<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> elasticsearch</span><br><span class="line">es = elasticsearch.Elasticsearch()</span><br><span class="line">res = es.search(index=<span class="string">'scrapy_tv'</span>,doc_type=<span class="string">'text-type'</span>,</span><br><span class="line">          body=&#123;<span class="string">"query"</span>:&#123;<span class="string">"match"</span>:&#123;</span><br><span class="line">              <span class="string">"name"</span>:<span class="string">"加油吧"</span></span><br><span class="line">          &#125;&#125;&#125;)</span><br><span class="line">print(res[<span class="string">'hits'</span>][<span class="string">'hits'</span>])</span><br></pre></td></tr></table></figure></p>
+<p>其中的”name”:”加油吧”就是你自己定义的属性和你要查询属性的内容<br>打印出来你就能看到Json格式的结果</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这个搜索引擎还是非常简单的，简易方便完成一些很基本的功能，它还有非常大的晋升空间，这个就靠大家自己琢磨了<br>github源码地址:<br><a href="https://github.com/KoiCarrot/YibuJY" target="_blank" rel="noopener">https://github.com/KoiCarrot/YibuJY</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">flask</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">scrapy-redis</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">elasticsearch</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/30/Scrapy-Redis-Flask-Elasticsearch打造简易搜索引擎/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Scrapy-redis简易分布式爬虫" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1323,95 +1425,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Django简易开发教程-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/19/Django简易开发教程-1/">Django简易开发教程(一)</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/19/Django简易开发教程-1/" class="archive-article-date">
-  	<time datetime="2018-03-19T06:39:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="首先我们需要熟记开始一个Django项目所需要的基础环境（Windows）："><a href="#首先我们需要熟记开始一个Django项目所需要的基础环境（Windows）：" class="headerlink" title="首先我们需要熟记开始一个Django项目所需要的基础环境（Windows）："></a>首先我们需要熟记开始一个Django项目所需要的基础环境（Windows）：</h2><ul>
-<li>python</li>
-<li>virtualenv</li>
-<li>Django<h2 id="接着："><a href="#接着：" class="headerlink" title="接着："></a>接着：</h2>1、  pip install virtualenv (安装virtualenv环境)<br>2、  vitualenv d:\virtualproject\virtual_one (把虚拟环境安装到指定路径)<br>3、  cd d:\virtualproject\vitual_one\Scripts （切换到指定路径）<br>4、  activate （激活）<br>5、  pip install django (安装django)<br>6、  django-admin startproject XXX （开始新的django工程）<br>7、  python manage.py runserver  （运行开发服务器）<br>8、  浏览器输入127.0.0.1:8000即可看到Django启动成功<blockquote>
-<p> 我们可以在blogproject/blogproject/settings.py中更改 LANGUAGE_CODE = ‘zh-hans’  TIME_ZONE = ‘Asia/Shanghai’ 将网页设置为中文</p>
-</blockquote>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Django</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Django简易开发教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/19/Django简易开发教程-1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1529,10 +1542,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python知识点随记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
               </li>
              
@@ -1541,15 +1550,39 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Python进阶用法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python知识点随记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">flask</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">scrapy-redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">elasticsearch</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Python进阶用法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">剑指Offer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Vim</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1565,10 +1598,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vim</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
@@ -1577,11 +1606,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">剑指Offer</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1598,10 +1623,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">后端开发</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
             
             <div class="clearfix"></div>

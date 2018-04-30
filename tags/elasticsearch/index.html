@@ -6,13 +6,13 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>KoiCarrot</title>
+  <title>Tag: elasticsearch | KoiCarrot</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Python Coder Zone">
 <meta name="keywords" content="python,flask,django,mysql,mongodb,java,html,css,nginx,tcp&#x2F;ip,http,gunicorn">
 <meta property="og:type" content="website">
 <meta property="og:title" content="KoiCarrot">
-<meta property="og:url" content="http://yoursite.com/page/3/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/elasticsearch/index.html">
 <meta property="og:site_name" content="KoiCarrot">
 <meta property="og:description" content="Python Coder Zone">
 <meta property="og:locale" content="zh-CN">
@@ -150,322 +150,66 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Python知识点随记-3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
     
-      <header class="article-header">
-        
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/04/30/Scrapy-Redis-Flask-Elasticsearch打造简易搜索引擎/" class="archive-article-date">
+  	<time datetime="2018-04-30T05:34:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-30</time>
+</a>
+        </div>
+    	 
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/19/Python知识点随记-3/">Python知识点随记(三)</a>
+      <a class="archive-article-title" href="/2018/04/30/Scrapy-Redis-Flask-Elasticsearch打造简易搜索引擎/">Scrapy-Redis+Flask+Elasticsearch打造简易搜索引擎</a>
     </h1>
   
 
-        
-        <a href="/2018/03/19/Python知识点随记-3/" class="archive-article-date">
-  	<time datetime="2018-03-19T02:17:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>改变实例的打印或者显示输出:</li>
-</ol>
-<ul>
-<li>可以在类内复写<strong>str</strong>函数，从而改变打印输出形式.</li>
-<li>可以在类内复写<strong>repr</strong>函数，从而改变实例输出形式</li>
-<li>两者的主要区别在于：<br><strong>repr</strong>() 方法返回一个实例的代码表示形式，通常用来重新构造这个实例。 内置的 repr() 函数返回这个字符串，跟我们使用交互式解释器显示的值是一样的。 <strong>str</strong>() 方法将实例转换为一个字符串，使用 str() 或 print() 函数会输出这个字符串</li>
-</ul>
-<ol>
-<li>自定义字符串的格式化<strong>format</strong></li>
-<li>让对象支持with用法:<br>(1)需要实现<strong>enter</strong>,<strong>exit</strong>()两个方法，其中<strong>enter</strong>方法则是with开始时会做的动作，动作的结果会返回给as生明的对象，<strong>exit</strong>方法则反之</li>
-<li><strong>slots</strong>内置函数:<br>当你定义 <strong>slots</strong> 后，Python就会为实例使用一种更加紧凑的内部表示。 实例通过一个很小的固定大小的数组来构建，而不是为每个实例定义一个字典，这跟元组或列表很类似。 在 <strong>slots</strong> 中列出的属性名在内部被映射到这个数组的指定小标上。 使用slots一个不好的地方就是我们不能再给实例添加新的属性了，只能使用在 <strong>slots</strong> 中定义的那些属性名<br>但是需要注意的是slots后的类不再支持一些普通的类特性了，比如继承.</li>
-<li>在属性前添加单下划线和双下划线都可以把属性标记为私有属性，但是两者有区别，双下划线的私有属性被子类继承也不会覆盖，但是单下划线的则可以被子类覆盖，如果我们属性名字和关键字重复的话可以使用后缀_标记.</li>
-<li>@property装饰器:</li>
-</ol>
-<ul>
-<li>@property装饰器使得函数变成了属性</li>
-<li>只有函数成为属性后才可以调用@xxx.getter,@xxx.setter,@xxx.deleter等装饰器</li>
-<li>注意不要写类似java中多个getter，setter，这样会使得python代码臃肿且运行缓慢 </li>
-</ul>
-<ol>
-<li>Super()调用父类的方法:<strong>mro</strong>查找链</li>
-<li><p>如果想要扩展父类的property可以这么做:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@name.setter</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">name</span><span class="params">(self, value)</span>:</span></span><br><span class="line">        print(<span class="string">'Setting name to'</span>, value)</span><br><span class="line">        super(SubPerson, SubPerson).name.__set__(self, value)</span><br><span class="line">	还可以这么做:</span><br><span class="line"><span class="meta">	@Person.name.getter</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">name</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'Getting name'</span>)</span><br><span class="line">        <span class="keyword">return</span> super().name</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>描述器可以生成一个全新的属性.</p>
-</li>
-<li>定义接口或者抽象基类:<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> abc <span class="keyword">import</span> ABCMeta, abstractmethod</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">IStream</span><span class="params">(metaclass=ABCMeta)</span>:</span></span><br><span class="line"><span class="meta">    @abstractmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">read</span><span class="params">(self, maxbytes=<span class="number">-1</span>)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @abstractmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">write</span><span class="params">(self, data)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">flask</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python知识点随记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">scrapy-redis</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">elasticsearch</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/19/Python知识点随记-3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-Python知识点随记-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
+    </div></section>
+  
+
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/19/Python知识点随记-2/">Python知识点随记(二)</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/19/Python知识点随记-2/" class="archive-article-date">
-  	<time datetime="2018-03-19T02:16:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>编码</li>
-</ol>
-<ul>
-<li>ASCII编码为适应美国字符所产生的编码集，编码为一个字节(8个bit,11111111可以表示255个字符)</li>
-<li>GB2312编码则为适应中国所产生的编码集</li>
-<li>Unicode则为了统一各国所产生的编码集，编码一般为两个字节(16个bit)</li>
-<li>由于Unicode编码在空间上所需比ASCII多一倍，如果我们大多数只用到ASCII字符的话就会显得不划算，这时候就有UTF-8编码，由Unicode转换而来，可以根据字符自动增长缩短字节，节省空间.</li>
-<li>搞清楚了ASCII、Unicode和UTF-8的关系，我们就可以总结一下现在计算机系统通用的字符编码工作方式：<br>在计算机内存中，统一使用Unicode编码，当需要保存到硬盘或者需要传输的时候，就转换为UTF-8编码</li>
-<li>Python字符串统一使用unicode编码</li>
-</ul>
-<ol>
-<li>函数参数*args,**kw</li>
-</ol>
-<ul>
-<li>*args作为参数说明函数可以接受任意位置参数，通常*args只能出现在位置参数后一个</li>
-<li><strong>kw作为参数说明函数可以接受任意的关键字参数，</strong>kw位置只能在最后.</li>
-</ul>
-<ol>
-<li>Def(<em>args,block)或者def(A, </em>,block)这样的话block就被设置成了强制关键字参数，block必须传入关键字参数，不然会提示异常.</li>
-<li>函数返回多个值时返回的是元组</li>
-<li><p>如果你想让某个匿名函数在定义时就捕获到值，可以将那个参数值定义成默认参数即可,像这样:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">10</span></span><br><span class="line">a = <span class="keyword">lambda</span> y, x=x: x + y</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>通常如果我们有一个类但是只有一个方法，我们觉得它有点多余的话，我们可以把它转换成一个函数，具体的做法就是闭包，所谓闭包就是函数返回函数，例如:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">urltemplate</span><span class="params">(template)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">opener</span><span class="params">(**kwargs)</span>:</span></span><br><span class="line">		<span class="keyword">return</span> urlopen(template.format_map(kwargs))</span><br><span class="line">	<span class="keyword">return</span> opener</span><br><span class="line"><span class="comment"># Example use</span></span><br><span class="line">yahoo = urltemplate(<span class="string">'http://finance.yahoo.com/d/quotes.csv?s=&#123;names&#125;&amp;f=&#123;fields&#125;'</span>)</span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> yahoo(names=<span class="string">'IBM,AAPL,FB'</span>, fields=<span class="string">'sl1c1v'</span>):</span><br><span class="line">    print(line.decode(<span class="string">'utf-8'</span>))</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>回调函数的例子</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">apply_async</span><span class="params">(func, args, *, callback)</span>:</span></span><br><span class="line">    <span class="comment"># Compute the result</span></span><br><span class="line">    	result = func(*args)</span><br><span class="line"></span><br><span class="line">   	<span class="comment"># Invoke the callback with the result</span></span><br><span class="line">    	callback(result)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">print_result</span><span class="params">(result)</span>:</span></span><br><span class="line"><span class="meta">... </span>    print(<span class="string">'Got:'</span>, result)</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x, y)</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="keyword">return</span> x + y</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>apply_async(add, (<span class="number">2</span>, <span class="number">3</span>), callback=print_result)</span><br><span class="line">Got: <span class="number">5</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>apply_async(add, (<span class="string">'hello'</span>, <span class="string">'world'</span>), callback=print_result)</span><br><span class="line">Got: helloworld</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>内联回掉函数：运用yield和装饰器对回调函数进行封装.具体参考<br><a href="http://python3-cookbook.readthedocs.io/zh_CN/latest/c07/p11_inline_callback_functions.html" target="_blank" rel="noopener">http://python3-cookbook.readthedocs.io/zh_CN/latest/c07/p11_inline_callback_functions.html</a></p>
-</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python知识点随记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/19/Python知识点随记-2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Python知识点随记-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/18/Python知识点随记-1/">Python知识点随记(一)</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/18/Python知识点随记-1/" class="archive-article-date">
-  	<time datetime="2018-03-18T13:06:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>描述器<br>描述器可以改变python默认的获取属性值行为<br>描述器可以是类也可以是方法,装饰器@classmethod可以把方法或者类成为描述器，另一种方式是，对于实现<strong>get</strong>，<strong>set</strong>，<strong>delete</strong>方法的类都是描述器</li>
-<li>type(a).<strong>dict</strong>,type还可以这么使用，但是此时的type()不再是查看类型，而是变成了a的父类(应该吧…)</li>
-<li>可迭代小技巧一:要自定义可迭代(iterable)的对象，只需要让对象(类)实现<strong>iter</strong>方法即可，但是需要保证的是<strong>iter</strong>方法返回了一个实现了<strong>next</strong>()方法的迭代器对象.</li>
-<li>Iter(s)等同于s.<strong>iter</strong>()来返回相应的迭代器对象</li>
-<li>迭代器需要实现<strong>iter</strong>，<strong>next</strong>两个方法，可以通过next()获得下一个变量.</li>
-<li>反向迭代仅仅当对象的大小可预先确定或者对象实现了 <strong>reversed</strong>() 的特殊方法时才能生效。 如果两者都不符合，那你必须先将对象转换为一个列表才行</li>
-<li>如果我们的定义的生成器(函数)要暴露一些外部状态给用户(应该是属性),我们可以将方法定义为一个类，并在类中的<strong>iter</strong>方法中yield，这样不会改变任何函数本身的逻辑实现.</li>
-<li>如果要对迭代器进行切片操作的话，我们可以使用itertools.islice(xxx,10,20)函数进行切片操作，它会自行迭代并剔除掉那些不要的元素，最后一个个返回.但是需要注意的是,迭代器是不可逆的，我们对迭代器进行了剔除后就真的从迭代器中剔除了.(可适用于所有可迭代对象)</li>
-<li>itertools 模块中有一些函数可以完成这个任务。 首先介绍的是 itertools.dropwhile() 函数。使用时，你给它传递一个函数对象和一个可迭代对象。 它会返回一个迭代器对象，丢弃原有序列中直到函数返回Flase之前的所有元素，然后返回后面所有元素。(可适用于所有可迭代对象)</li>
-<li>其中一个是 itertools.permutations() ， 它接受一个集合并产生一个元组序列，每个元组由集合中所有元素的一个可能排列组成。 也就是说通过打乱集合中元素排列顺序生成一个元组<br>使用 itertools.combinations() 可得到输入集合中元素的所有的组合<br>在计算组合的时候，一旦元素被选取就会从候选中剔除掉(比如如果元素’a’已经被选取了，那么接下来就不会再考虑它了)。 而函数 itertools.combinations_with_replacement() 允许同一个元素被选择多次</li>
-<li>zip(a, b) 会生成一个可返回元组 (x, y) 的迭代器，其中x来自a，y来自b。 一旦其中某个序列到底结尾，迭代宣告结束。 因此迭代长度跟参数中最短序列长度一致</li>
-<li>itertools.chain() 方法可以用来简化这个任务。 它接受一个可迭代对象列表作为输入，并返回一个迭代器，有效的屏蔽掉在多个容器中迭代细节</li>
-<li>如果我们有非常大的数据，以至于我们没有办法一次性放入内存中,我们可以创建数据管道来处理(生成器实现) <a href="http://python3-cookbook.readthedocs.io/zh_CN/latest/c04/p13_create_data_processing_pipelines.html" target="_blank" rel="noopener">http://python3-cookbook.readthedocs.io/zh_CN/latest/c04/p13_create_data_processing_pipelines.html</a></li>
-<li>想将一个多层嵌套的序列展开成一个单层列表，请使用yield from</li>
-<li>想将一序列排序序列合并后得到一个排序序列并在上面迭代遍历heapq.merge(),需要注意的是要求参数序列均已排序</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python知识点随记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/18/Python知识点随记-1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
-  
 
 
           </div>
@@ -487,10 +231,10 @@ var _hmt = _hmt || [];
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

@@ -6,19 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>KoiCarrot</title>
+  <title>Scrapy-Redis+Flask+Elasticsearch打造简易搜索引擎 | KoiCarrot</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Python Coder Zone">
-<meta name="keywords" content="python,flask,django,mysql,mongodb,java,html,css,nginx,tcp&#x2F;ip,http,gunicorn">
-<meta property="og:type" content="website">
-<meta property="og:title" content="KoiCarrot">
-<meta property="og:url" content="http://yoursite.com/page/3/index.html">
+  <meta name="description" content="前言这次我们把上次Scarpy-redis简易分布式爬虫所爬去的信息进行整合，并搭配Flask和elasticsearch打造一个简易的搜索引擎 知识点 Scrapy-Redis简易分布式爬虫(可以参考我的上一篇博文)传送门:http://koicarrot.com/2018/04/26/Scrapy-redis简易分布式爬虫/ Flask ElasticSearchFlask前端项目架构这里可以">
+<meta name="keywords" content="flask,scrapy-redis,elasticsearch">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Scrapy-Redis+Flask+Elasticsearch打造简易搜索引擎">
+<meta property="og:url" content="http://yoursite.com/2018/04/30/Scrapy-Redis-Flask-Elasticsearch打造简易搜索引擎/index.html">
 <meta property="og:site_name" content="KoiCarrot">
-<meta property="og:description" content="Python Coder Zone">
+<meta property="og:description" content="前言这次我们把上次Scarpy-redis简易分布式爬虫所爬去的信息进行整合，并搭配Flask和elasticsearch打造一个简易的搜索引擎 知识点 Scrapy-Redis简易分布式爬虫(可以参考我的上一篇博文)传送门:http://koicarrot.com/2018/04/26/Scrapy-redis简易分布式爬虫/ Flask ElasticSearchFlask前端项目架构这里可以">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/KoiCarrot/Github_photos/master/YibuJY_product_dir.jpg">
+<meta property="og:updated_time" content="2018-04-30T06:42:13.633Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="KoiCarrot">
-<meta name="twitter:description" content="Python Coder Zone">
+<meta name="twitter:title" content="Scrapy-Redis+Flask+Elasticsearch打造简易搜索引擎">
+<meta name="twitter:description" content="前言这次我们把上次Scarpy-redis简易分布式爬虫所爬去的信息进行整合，并搭配Flask和elasticsearch打造一个简易的搜索引擎 知识点 Scrapy-Redis简易分布式爬虫(可以参考我的上一篇博文)传送门:http://koicarrot.com/2018/04/26/Scrapy-redis简易分布式爬虫/ Flask ElasticSearchFlask前端项目架构这里可以">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/KoiCarrot/Github_photos/master/YibuJY_product_dir.jpg">
   
     <link rel="alternative" href="/atom.xml" title="KoiCarrot" type="application/atom+xml">
   
@@ -148,58 +151,47 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Python知识点随记-3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-Scrapy-Redis-Flask-Elasticsearch打造简易搜索引擎" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/19/Python知识点随记-3/">Python知识点随记(三)</a>
+    <h1 class="article-title" itemprop="name">
+      Scrapy-Redis+Flask+Elasticsearch打造简易搜索引擎
     </h1>
   
 
         
-        <a href="/2018/03/19/Python知识点随记-3/" class="archive-article-date">
-  	<time datetime="2018-03-19T02:17:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
+        <a href="/2018/04/30/Scrapy-Redis-Flask-Elasticsearch打造简易搜索引擎/" class="archive-article-date">
+  	<time datetime="2018-04-30T05:34:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ol>
-<li>改变实例的打印或者显示输出:</li>
-</ol>
-<ul>
-<li>可以在类内复写<strong>str</strong>函数，从而改变打印输出形式.</li>
-<li>可以在类内复写<strong>repr</strong>函数，从而改变实例输出形式</li>
-<li>两者的主要区别在于：<br><strong>repr</strong>() 方法返回一个实例的代码表示形式，通常用来重新构造这个实例。 内置的 repr() 函数返回这个字符串，跟我们使用交互式解释器显示的值是一样的。 <strong>str</strong>() 方法将实例转换为一个字符串，使用 str() 或 print() 函数会输出这个字符串</li>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这次我们把上次Scarpy-redis简易分布式爬虫所爬去的信息进行整合，并搭配Flask和elasticsearch打造一个简易的搜索引擎</p>
+<h2 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h2><ul>
+<li>Scrapy-Redis简易分布式爬虫(可以参考我的上一篇博文)<br>传送门:<a href="http://koicarrot.com/2018/04/26/Scrapy-redis简易分布式爬虫/" target="_blank" rel="noopener">http://koicarrot.com/2018/04/26/Scrapy-redis简易分布式爬虫/</a></li>
+<li>Flask</li>
+<li>ElasticSearch<h2 id="Flask前端项目架构"><a href="#Flask前端项目架构" class="headerlink" title="Flask前端项目架构"></a>Flask前端项目架构</h2><img src="https://raw.githubusercontent.com/KoiCarrot/Github_photos/master/YibuJY_product_dir.jpg" alt="Flask_photo_one"><br>这里可以看到一个比较通用的Flask项目架构，用来作为我们网站建设已经足够了，具体前端逻辑实现大家可以做成自己喜欢的.<h2 id="Views-py的主要逻辑"><a href="#Views-py的主要逻辑" class="headerlink" title="Views.py的主要逻辑"></a>Views.py的主要逻辑</h2>Flask中的主要逻辑集中在Views.py里，我们需要两个界面，一个是搜索界面，一个是结果界面，因此我们定义两个视图函数.<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> render_template,redirect,url_for</span><br><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> main</span><br><span class="line"><span class="keyword">from</span> .forms <span class="keyword">import</span> SearchForm</span><br><span class="line"><span class="keyword">import</span> elasticsearch</span><br><span class="line">es = elasticsearch.Elasticsearch()</span><br><span class="line"></span><br><span class="line"><span class="meta">@main.route('/',methods =['GET','POST'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">()</span>:</span></span><br><span class="line">    form = SearchForm()</span><br><span class="line">    <span class="keyword">if</span> form.validate_on_submit():</span><br><span class="line">        content = form.content.data</span><br><span class="line">        <span class="keyword">return</span> redirect(url_for(<span class="string">'main.page'</span>,content = content))</span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">'index_templates/index.html'</span>,form=form)</span><br><span class="line"></span><br><span class="line"><span class="meta">@main.route('/search/&lt;content&gt;',methods = ['GET','POST'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">page</span><span class="params">(content)</span>:</span></span><br><span class="line">    res = es.search(index=<span class="string">'scrapy_tv'</span>, doc_type=<span class="string">'text-type'</span>,</span><br><span class="line">                    body=&#123;<span class="string">"query"</span>: &#123;<span class="string">"match"</span>: &#123;</span><br><span class="line">                        <span class="string">"name"</span>: content</span><br><span class="line">                    &#125;&#125;&#125;)</span><br><span class="line">    post = res[<span class="string">'hits'</span>][<span class="string">'hits'</span>]</span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">'page_templates/index.html'</span>,post = post)</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<ol>
-<li>自定义字符串的格式化<strong>format</strong></li>
-<li>让对象支持with用法:<br>(1)需要实现<strong>enter</strong>,<strong>exit</strong>()两个方法，其中<strong>enter</strong>方法则是with开始时会做的动作，动作的结果会返回给as生明的对象，<strong>exit</strong>方法则反之</li>
-<li><strong>slots</strong>内置函数:<br>当你定义 <strong>slots</strong> 后，Python就会为实例使用一种更加紧凑的内部表示。 实例通过一个很小的固定大小的数组来构建，而不是为每个实例定义一个字典，这跟元组或列表很类似。 在 <strong>slots</strong> 中列出的属性名在内部被映射到这个数组的指定小标上。 使用slots一个不好的地方就是我们不能再给实例添加新的属性了，只能使用在 <strong>slots</strong> 中定义的那些属性名<br>但是需要注意的是slots后的类不再支持一些普通的类特性了，比如继承.</li>
-<li>在属性前添加单下划线和双下划线都可以把属性标记为私有属性，但是两者有区别，双下划线的私有属性被子类继承也不会覆盖，但是单下划线的则可以被子类覆盖，如果我们属性名字和关键字重复的话可以使用后缀_标记.</li>
-<li>@property装饰器:</li>
-</ol>
-<ul>
-<li>@property装饰器使得函数变成了属性</li>
-<li>只有函数成为属性后才可以调用@xxx.getter,@xxx.setter,@xxx.deleter等装饰器</li>
-<li>注意不要写类似java中多个getter，setter，这样会使得python代码臃肿且运行缓慢 </li>
-</ul>
-<ol>
-<li>Super()调用父类的方法:<strong>mro</strong>查找链</li>
-<li><p>如果想要扩展父类的property可以这么做:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@name.setter</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">name</span><span class="params">(self, value)</span>:</span></span><br><span class="line">        print(<span class="string">'Setting name to'</span>, value)</span><br><span class="line">        super(SubPerson, SubPerson).name.__set__(self, value)</span><br><span class="line">	还可以这么做:</span><br><span class="line"><span class="meta">	@Person.name.getter</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">name</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'Getting name'</span>)</span><br><span class="line">        <span class="keyword">return</span> super().name</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>描述器可以生成一个全新的属性.</p>
-</li>
-<li>定义接口或者抽象基类:<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> abc <span class="keyword">import</span> ABCMeta, abstractmethod</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">IStream</span><span class="params">(metaclass=ABCMeta)</span>:</span></span><br><span class="line"><span class="meta">    @abstractmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">read</span><span class="params">(self, maxbytes=<span class="number">-1</span>)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @abstractmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">write</span><span class="params">(self, data)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+<p>现在可以先忽略ElasticSearch部分，这里因为个人习惯用了蓝图，这里实际上就是第一个函数Form表单把接收到的搜索主体传给Page视图函数进行查询并展现出来，非常得简单.</p>
+<h2 id="ElasticSearch"><a href="#ElasticSearch" class="headerlink" title="ElasticSearch"></a>ElasticSearch</h2><p>我们先来看看百科的介绍：</p>
+<blockquote>
+<blockquote>
+<p>ElasticSearch是一个基于Lucene的搜索服务器。它提供了一个分布式多用户能力的全文搜索引擎，基于RESTful web接口。Elasticsearch是用Java开发的，并作为Apache许可条款下的开放源码发布，是当前流行的企业级搜索引擎。设计用于云计算中，能够达到实时搜索，稳定，可靠，快速，安装使用方便。<br>我们建立一个网站或应用程序，并要添加搜索功能，但是想要完成搜索工作的创建是非常困难的。我们希望搜索解决方案要运行速度快，我们希望能有一个零配置和一个完全免费的搜索模式，我们希望能够简单地使用JSON通过HTTP来索引数据，我们希望我们的搜索服务器始终可用，我们希望能够从一台开始并扩展到数百台，我们要实时搜索，我们要简单的多租户，我们希望建立一个云的解决方案。因此我们利用Elasticsearch来解决所有这些问题及可能出现的更多其它问题。</p>
+</blockquote>
+</blockquote>
+<p>因此ElasticSearch可以非常方便得实现全文搜索，我们只需要把数据存入ElasticSearch中进行查询即可，我们经过Scrapy-Redis已经得到我们的数据，我们现在需要把它存入ElaSticSearch中.<br>ElasticSearch安装-使用文档如下:<br><a href="http://www.elastic.co/guide/cn/elasticsearch/guide/current/index.html" target="_blank" rel="noopener">http://www.elastic.co/guide/cn/elasticsearch/guide/current/index.html</a></p>
+<h2 id="pyelasticsearch"><a href="#pyelasticsearch" class="headerlink" title="pyelasticsearch"></a>pyelasticsearch</h2><p>为了讲Redis中的数据存入ElasticSearch中，我们使用pyelasticsearch封装好的方法进行插入存储.具体示例如下:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> elasticsearch</span><br><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    rediscli = redis.StrictRedis(host=<span class="string">'127.0.0.1'</span>,port=<span class="number">6379</span>,db=<span class="number">0</span>)</span><br><span class="line">    es = elasticsearch.Elasticsearch([<span class="string">'localhost:9200'</span>])</span><br><span class="line">    <span class="keyword">if</span> es.indices.exists(<span class="string">'scrapy_tv'</span>) <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">True</span>:</span><br><span class="line">        es.indices.create(<span class="string">'scrapy_tv'</span>)</span><br><span class="line">    <span class="keyword">while</span> rediscli.exists(<span class="string">"hanjuTV_spider:items"</span>):</span><br><span class="line">        source,data = rediscli.blpop([<span class="string">"hanjuTV_spider:items"</span>])</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">print</span> (es.index(index=<span class="string">'scrapy_tv'</span>,doc_type=<span class="string">'text-type'</span>,body=data,refresh = <span class="keyword">True</span>))</span><br><span class="line">        <span class="keyword">except</span> Exception:</span><br><span class="line">            <span class="keyword">print</span> (<span class="string">"gg"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure></p>
+<p>由于数据量小，我采用逐行读取写入的方式进行，如果数据量巨大的话建议进行批量处理</p>
+<h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><p>接下来我们要了解在Pyelasticsearch中封装好的查询search方法，方法使用说明如下<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">search</span><span class="params">(self, index=None, doc_type=None, body=None, params=None)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Execute a search query and get back search hits that match the query.</span></span><br><span class="line"><span class="string">    `&lt;http://www.elastic.co/guide/en/elasticsearch/reference/current/search-search.html&gt;`_</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    :arg index: A comma-separated list of index names to search; use `_all`</span></span><br><span class="line"><span class="string">        or empty string to perform the operation on all indices</span></span><br><span class="line"><span class="string">    :arg doc_type: A comma-separated list of document types to search; leave</span></span><br><span class="line"><span class="string">        empty to perform the operation on all types</span></span><br><span class="line"><span class="string">    :arg body: The search definition using the Query DSL</span></span><br><span class="line"><span class="string">    :arg _source: True or false to return the _source field or not, or a</span></span><br><span class="line"><span class="string">        list of fields to return</span></span><br><span class="line"><span class="string">    :arg _source_exclude: A list of fields to exclude from the returned</span></span><br><span class="line"><span class="string">        _source field</span></span><br><span class="line"><span class="string">    :arg _source_include: A list of fields to extract and return from the</span></span><br><span class="line"><span class="string">        _source field</span></span><br><span class="line"><span class="string">    :arg allow_no_indices: Whether to ignore if a wildcard indices</span></span><br><span class="line"><span class="string">        expression resolves into no concrete indices. (This includes `_all`</span></span><br><span class="line"><span class="string">        string or when no indices have been specified)</span></span><br><span class="line"><span class="string">    :arg analyze_wildcard: Specify whether wildcard and prefix queries</span></span><br><span class="line"><span class="string">        should be analyzed (default: false)</span></span><br><span class="line"><span class="string">    :arg analyzer: The analyzer to use for the query string</span></span><br><span class="line"><span class="string">    :arg batched_reduce_size: The number of shard results that should be</span></span><br><span class="line"><span class="string">        reduced at once on the coordinating node. This value should be used</span></span><br><span class="line"><span class="string">        as a protection mechanism to reduce the memory overhead per search</span></span><br><span class="line"><span class="string">        request if the potential number of shards in the request can be</span></span><br><span class="line"><span class="string">        large., default 512</span></span><br><span class="line"><span class="string">    :arg default_operator: The default operator for query string query (AND</span></span><br><span class="line"><span class="string">        or OR), default 'OR', valid choices are: 'AND', 'OR'</span></span><br><span class="line"><span class="string">    :arg df: The field to use as default where no field prefix is given in</span></span><br><span class="line"><span class="string">        the query string</span></span><br><span class="line"><span class="string">    :arg docvalue_fields: A comma-separated list of fields to return as the</span></span><br><span class="line"><span class="string">        docvalue representation of a field for each hit</span></span><br><span class="line"><span class="string">    :arg expand_wildcards: Whether to expand wildcard expression to concrete</span></span><br><span class="line"><span class="string">        indices that are open, closed or both., default 'open', valid</span></span><br><span class="line"><span class="string">        choices are: 'open', 'closed', 'none', 'all'</span></span><br><span class="line"><span class="string">    :arg explain: Specify whether to return detailed information about score</span></span><br><span class="line"><span class="string">        computation as part of a hit</span></span><br><span class="line"><span class="string">    :arg from\\_: Starting offset (default: 0)</span></span><br><span class="line"><span class="string">    :arg ignore_unavailable: Whether specified concrete indices should be</span></span><br><span class="line"><span class="string">        ignored when unavailable (missing or closed)</span></span><br><span class="line"><span class="string">    :arg lenient: Specify whether format-based query failures (such as</span></span><br><span class="line"><span class="string">        providing text to a numeric field) should be ignored</span></span><br><span class="line"><span class="string">    :arg max_concurrent_shard_requests: The number of concurrent shard</span></span><br><span class="line"><span class="string">        requests this search executes concurrently. This value should be</span></span><br><span class="line"><span class="string">        used to limit the impact of the search on the cluster in order to</span></span><br><span class="line"><span class="string">        limit the number of concurrent shard requests, default 'The default</span></span><br><span class="line"><span class="string">        grows with the number of nodes in the cluster but is at most 256.'</span></span><br><span class="line"><span class="string">    :arg pre_filter_shard_size: A threshold that enforces a pre-filter</span></span><br><span class="line"><span class="string">        roundtrip to prefilter search shards based on query rewriting if</span></span><br><span class="line"><span class="string">        the number of shards the search request expands to exceeds the</span></span><br><span class="line"><span class="string">        threshold. This filter roundtrip can limit the number of shards</span></span><br><span class="line"><span class="string">        significantly if for instance a shard can not match any documents</span></span><br><span class="line"><span class="string">        based on it's rewrite method ie. if date filters are mandatory to</span></span><br><span class="line"><span class="string">        match but the shard bounds and the query are disjoint., default 128</span></span><br><span class="line"><span class="string">    :arg preference: Specify the node or shard the operation should be</span></span><br><span class="line"><span class="string">        performed on (default: random)</span></span><br><span class="line"><span class="string">    :arg q: Query in the Lucene query string syntax</span></span><br><span class="line"><span class="string">    :arg request_cache: Specify if request cache should be used for this</span></span><br><span class="line"><span class="string">        request or not, defaults to index level setting</span></span><br><span class="line"><span class="string">    :arg routing: A comma-separated list of specific routing values</span></span><br><span class="line"><span class="string">    :arg scroll: Specify how long a consistent view of the index should be</span></span><br><span class="line"><span class="string">        maintained for scrolled search</span></span><br><span class="line"><span class="string">    :arg search_type: Search operation type, valid choices are:</span></span><br><span class="line"><span class="string">        'query_then_fetch', 'dfs_query_then_fetch'</span></span><br><span class="line"><span class="string">    :arg size: Number of hits to return (default: 10)</span></span><br><span class="line"><span class="string">    :arg sort: A comma-separated list of &lt;field&gt;:&lt;direction&gt; pairs</span></span><br><span class="line"><span class="string">    :arg stats: Specific 'tag' of the request for logging and statistical</span></span><br><span class="line"><span class="string">        purposes</span></span><br><span class="line"><span class="string">    :arg stored_fields: A comma-separated list of stored fields to return as</span></span><br><span class="line"><span class="string">        part of a hit</span></span><br><span class="line"><span class="string">    :arg suggest_field: Specify which field to use for suggestions</span></span><br><span class="line"><span class="string">    :arg suggest_mode: Specify suggest mode, default 'missing', valid</span></span><br><span class="line"><span class="string">        choices are: 'missing', 'popular', 'always'</span></span><br><span class="line"><span class="string">    :arg suggest_size: How many suggestions to return in response</span></span><br><span class="line"><span class="string">    :arg suggest_text: The source text for which the suggestions should be</span></span><br><span class="line"><span class="string">        returned</span></span><br><span class="line"><span class="string">    :arg terminate_after: The maximum number of documents to collect for</span></span><br><span class="line"><span class="string">        each shard, upon reaching which the query execution will terminate</span></span><br><span class="line"><span class="string">        early.</span></span><br><span class="line"><span class="string">    :arg timeout: Explicit operation timeout</span></span><br><span class="line"><span class="string">    :arg track_scores: Whether to calculate and return scores even if they</span></span><br><span class="line"><span class="string">        are not used for sorting</span></span><br><span class="line"><span class="string">    :arg track_total_hits: Indicate if the number of documents that match</span></span><br><span class="line"><span class="string">        the query should be tracked</span></span><br><span class="line"><span class="string">    :arg typed_keys: Specify whether aggregation and suggester names should</span></span><br><span class="line"><span class="string">        be prefixed by their respective types in the response</span></span><br><span class="line"><span class="string">    :arg version: Specify whether to return document version as part of a</span></span><br><span class="line"><span class="string">        hit</span></span><br><span class="line"><span class="string">    """</span></span><br></pre></td></tr></table></figure></p>
+<p>看起来很长 其实用法很简单<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> elasticsearch</span><br><span class="line">es = elasticsearch.Elasticsearch()</span><br><span class="line">res = es.search(index=<span class="string">'scrapy_tv'</span>,doc_type=<span class="string">'text-type'</span>,</span><br><span class="line">          body=&#123;<span class="string">"query"</span>:&#123;<span class="string">"match"</span>:&#123;</span><br><span class="line">              <span class="string">"name"</span>:<span class="string">"加油吧"</span></span><br><span class="line">          &#125;&#125;&#125;)</span><br><span class="line">print(res[<span class="string">'hits'</span>][<span class="string">'hits'</span>])</span><br></pre></td></tr></table></figure></p>
+<p>其中的”name”:”加油吧”就是你自己定义的属性和你要查询属性的内容<br>打印出来你就能看到Json格式的结果</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这个搜索引擎还是非常简单的，简易方便完成一些很基本的功能，它还有非常大的晋升空间，这个就靠大家自己琢磨了<br>github源码地址:<br><a href="https://github.com/KoiCarrot/YibuJY" target="_blank" rel="noopener">https://github.com/KoiCarrot/YibuJY</a></p>
 
       
 
@@ -213,11 +205,15 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">flask</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python知识点随记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">scrapy-redis</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">elasticsearch</a>
         		</li>
       		
 		</ul>
@@ -226,16 +222,75 @@ var _hmt = _hmt || [];
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/19/Python知识点随记-3/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/04/30/Scrapy-Redis-Flask-Elasticsearch打造简易搜索引擎/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2018/04/26/Scrapy-redis简易分布式爬虫/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Scrapy-redis简易分布式爬虫</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -255,216 +310,14 @@ var _hmt = _hmt || [];
 
 
 
-
-  
-    <article id="post-Python知识点随记-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/19/Python知识点随记-2/">Python知识点随记(二)</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/19/Python知识点随记-2/" class="archive-article-date">
-  	<time datetime="2018-03-19T02:16:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>编码</li>
-</ol>
-<ul>
-<li>ASCII编码为适应美国字符所产生的编码集，编码为一个字节(8个bit,11111111可以表示255个字符)</li>
-<li>GB2312编码则为适应中国所产生的编码集</li>
-<li>Unicode则为了统一各国所产生的编码集，编码一般为两个字节(16个bit)</li>
-<li>由于Unicode编码在空间上所需比ASCII多一倍，如果我们大多数只用到ASCII字符的话就会显得不划算，这时候就有UTF-8编码，由Unicode转换而来，可以根据字符自动增长缩短字节，节省空间.</li>
-<li>搞清楚了ASCII、Unicode和UTF-8的关系，我们就可以总结一下现在计算机系统通用的字符编码工作方式：<br>在计算机内存中，统一使用Unicode编码，当需要保存到硬盘或者需要传输的时候，就转换为UTF-8编码</li>
-<li>Python字符串统一使用unicode编码</li>
-</ul>
-<ol>
-<li>函数参数*args,**kw</li>
-</ol>
-<ul>
-<li>*args作为参数说明函数可以接受任意位置参数，通常*args只能出现在位置参数后一个</li>
-<li><strong>kw作为参数说明函数可以接受任意的关键字参数，</strong>kw位置只能在最后.</li>
-</ul>
-<ol>
-<li>Def(<em>args,block)或者def(A, </em>,block)这样的话block就被设置成了强制关键字参数，block必须传入关键字参数，不然会提示异常.</li>
-<li>函数返回多个值时返回的是元组</li>
-<li><p>如果你想让某个匿名函数在定义时就捕获到值，可以将那个参数值定义成默认参数即可,像这样:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">10</span></span><br><span class="line">a = <span class="keyword">lambda</span> y, x=x: x + y</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>通常如果我们有一个类但是只有一个方法，我们觉得它有点多余的话，我们可以把它转换成一个函数，具体的做法就是闭包，所谓闭包就是函数返回函数，例如:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">urltemplate</span><span class="params">(template)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">opener</span><span class="params">(**kwargs)</span>:</span></span><br><span class="line">		<span class="keyword">return</span> urlopen(template.format_map(kwargs))</span><br><span class="line">	<span class="keyword">return</span> opener</span><br><span class="line"><span class="comment"># Example use</span></span><br><span class="line">yahoo = urltemplate(<span class="string">'http://finance.yahoo.com/d/quotes.csv?s=&#123;names&#125;&amp;f=&#123;fields&#125;'</span>)</span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> yahoo(names=<span class="string">'IBM,AAPL,FB'</span>, fields=<span class="string">'sl1c1v'</span>):</span><br><span class="line">    print(line.decode(<span class="string">'utf-8'</span>))</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>回调函数的例子</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">apply_async</span><span class="params">(func, args, *, callback)</span>:</span></span><br><span class="line">    <span class="comment"># Compute the result</span></span><br><span class="line">    	result = func(*args)</span><br><span class="line"></span><br><span class="line">   	<span class="comment"># Invoke the callback with the result</span></span><br><span class="line">    	callback(result)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">print_result</span><span class="params">(result)</span>:</span></span><br><span class="line"><span class="meta">... </span>    print(<span class="string">'Got:'</span>, result)</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x, y)</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="keyword">return</span> x + y</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>apply_async(add, (<span class="number">2</span>, <span class="number">3</span>), callback=print_result)</span><br><span class="line">Got: <span class="number">5</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>apply_async(add, (<span class="string">'hello'</span>, <span class="string">'world'</span>), callback=print_result)</span><br><span class="line">Got: helloworld</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>内联回掉函数：运用yield和装饰器对回调函数进行封装.具体参考<br><a href="http://python3-cookbook.readthedocs.io/zh_CN/latest/c07/p11_inline_callback_functions.html" target="_blank" rel="noopener">http://python3-cookbook.readthedocs.io/zh_CN/latest/c07/p11_inline_callback_functions.html</a></p>
-</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python知识点随记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/19/Python知识点随记-2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Python知识点随记-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/18/Python知识点随记-1/">Python知识点随记(一)</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/18/Python知识点随记-1/" class="archive-article-date">
-  	<time datetime="2018-03-18T13:06:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>描述器<br>描述器可以改变python默认的获取属性值行为<br>描述器可以是类也可以是方法,装饰器@classmethod可以把方法或者类成为描述器，另一种方式是，对于实现<strong>get</strong>，<strong>set</strong>，<strong>delete</strong>方法的类都是描述器</li>
-<li>type(a).<strong>dict</strong>,type还可以这么使用，但是此时的type()不再是查看类型，而是变成了a的父类(应该吧…)</li>
-<li>可迭代小技巧一:要自定义可迭代(iterable)的对象，只需要让对象(类)实现<strong>iter</strong>方法即可，但是需要保证的是<strong>iter</strong>方法返回了一个实现了<strong>next</strong>()方法的迭代器对象.</li>
-<li>Iter(s)等同于s.<strong>iter</strong>()来返回相应的迭代器对象</li>
-<li>迭代器需要实现<strong>iter</strong>，<strong>next</strong>两个方法，可以通过next()获得下一个变量.</li>
-<li>反向迭代仅仅当对象的大小可预先确定或者对象实现了 <strong>reversed</strong>() 的特殊方法时才能生效。 如果两者都不符合，那你必须先将对象转换为一个列表才行</li>
-<li>如果我们的定义的生成器(函数)要暴露一些外部状态给用户(应该是属性),我们可以将方法定义为一个类，并在类中的<strong>iter</strong>方法中yield，这样不会改变任何函数本身的逻辑实现.</li>
-<li>如果要对迭代器进行切片操作的话，我们可以使用itertools.islice(xxx,10,20)函数进行切片操作，它会自行迭代并剔除掉那些不要的元素，最后一个个返回.但是需要注意的是,迭代器是不可逆的，我们对迭代器进行了剔除后就真的从迭代器中剔除了.(可适用于所有可迭代对象)</li>
-<li>itertools 模块中有一些函数可以完成这个任务。 首先介绍的是 itertools.dropwhile() 函数。使用时，你给它传递一个函数对象和一个可迭代对象。 它会返回一个迭代器对象，丢弃原有序列中直到函数返回Flase之前的所有元素，然后返回后面所有元素。(可适用于所有可迭代对象)</li>
-<li>其中一个是 itertools.permutations() ， 它接受一个集合并产生一个元组序列，每个元组由集合中所有元素的一个可能排列组成。 也就是说通过打乱集合中元素排列顺序生成一个元组<br>使用 itertools.combinations() 可得到输入集合中元素的所有的组合<br>在计算组合的时候，一旦元素被选取就会从候选中剔除掉(比如如果元素’a’已经被选取了，那么接下来就不会再考虑它了)。 而函数 itertools.combinations_with_replacement() 允许同一个元素被选择多次</li>
-<li>zip(a, b) 会生成一个可返回元组 (x, y) 的迭代器，其中x来自a，y来自b。 一旦其中某个序列到底结尾，迭代宣告结束。 因此迭代长度跟参数中最短序列长度一致</li>
-<li>itertools.chain() 方法可以用来简化这个任务。 它接受一个可迭代对象列表作为输入，并返回一个迭代器，有效的屏蔽掉在多个容器中迭代细节</li>
-<li>如果我们有非常大的数据，以至于我们没有办法一次性放入内存中,我们可以创建数据管道来处理(生成器实现) <a href="http://python3-cookbook.readthedocs.io/zh_CN/latest/c04/p13_create_data_processing_pipelines.html" target="_blank" rel="noopener">http://python3-cookbook.readthedocs.io/zh_CN/latest/c04/p13_create_data_processing_pipelines.html</a></li>
-<li>想将一个多层嵌套的序列展开成一个单层列表，请使用yield from</li>
-<li>想将一序列排序序列合并后得到一个排序序列并在上面迭代遍历heapq.merge(),需要注意的是要求参数序列均已排序</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python知识点随记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/18/Python知识点随记-1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -487,8 +340,8 @@ var _hmt = _hmt || [];
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
